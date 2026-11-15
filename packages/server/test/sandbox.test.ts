@@ -412,14 +412,16 @@ test("JIRA_UPDATE_COMPUTER_ACTIONS are click-only (no type, key or drag)", () =>
   assert.ok(JIRA_UPDATE_COMPUTER_ACTIONS.includes("left_click"));
 });
 
-test("tabLineUrl is linear: a 20k-character pathological line parses in < 5 ms", () => {
+test("tabLineUrl is linear: a 20k-character pathological line parses in < 200 ms", () => {
   const lines = [`  • tabId 3: "${"a ".repeat(10_000)})`, `  • tabId 3: "${'("('.repeat(7000)}`, `  • tabId 3: "${" ".repeat(20_000)}x)`];
   for (const l of lines) tabLineUrl(l); // warm up
   for (const l of lines) {
     const t0 = performance.now();
     tabLineUrl(l);
     const ms = performance.now() - t0;
-    assert.ok(ms < 5, `${ms} ms`);
+    // quadratic parsing of 20k characters takes seconds; linear takes well under a millisecond on a laptop, and the
+    // bound leaves room for a busy shared CI runner
+    assert.ok(ms < 200, `${ms} ms`);
   }
   assert.equal(tabLineUrl('  • tabId 3: "Ok (1)" (https://j.example.com/browse/K-1)'), "https://j.example.com/browse/K-1");
   assert.equal(tabLineUrl('  • tabId 3: "x"\t(https://j.example.com/)'), "https://j.example.com/");

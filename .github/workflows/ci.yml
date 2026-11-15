@@ -31,4 +31,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck
       - run: pnpm check:public
+      # the acceptance-sandbox unit tests launch headless Chromium through Playwright
+      - run: pnpm exec playwright install chromium
       - run: pnpm test

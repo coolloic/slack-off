@@ -276,7 +276,9 @@ test("glob matching is linear: the worst allowed pattern against a 200-character
   for (const g of patterns) assert.equal(isForbidden(path, withPaths(g), [], "linux"), false, g);
   const deep = Array.from({ length: 100 }, () => "a").join("/");
   for (const g of patterns) isForbidden(deep, withPaths(g), [], "linux");
-  assert.ok(performance.now() - t0 < 50, `took ${performance.now() - t0} ms`);
+  // the guard is against exponential backtracking (seconds or a hang), not a speed target: linear matching takes tens of
+  // ms, and a busy shared CI runner has measured 54 ms, so the bound leaves room for a slow machine
+  assert.ok(performance.now() - t0 < 1000, `took ${performance.now() - t0} ms`);
 });
 
 test("gitRefusalMessage: dubious ownership / safe.directory is surfaced", () => {
@@ -336,7 +338,9 @@ test("glob matching does not recurse: a 10,000-character path is fine and fast",
   assert.equal(isForbidden(long, emptyRules, [], "linux"), false);
   assert.equal(isForbidden(long + ".git/x", emptyRules, [], "linux"), true);
   assert.equal(isForbidden("x".repeat(10_000), withPaths("*a*a*a*a*a*a*a*b"), [], "darwin"), false);
-  assert.ok(performance.now() - t0 < 50, `took ${performance.now() - t0} ms`);
+  // the guard is against exponential backtracking (seconds or a hang), not a speed target: linear matching takes tens of
+  // ms, and a busy shared CI runner has measured 54 ms, so the bound leaves room for a slow machine
+  assert.ok(performance.now() - t0 < 1000, `took ${performance.now() - t0} ms`);
 });
 
 test("validateGlob rejects '.' and '..' segments", () => {
