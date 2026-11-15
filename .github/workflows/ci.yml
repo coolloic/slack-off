@@ -31,4 +31,11 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck
       - run: pnpm check:public
+      # the acceptance-sandbox unit tests launch headless Chromium through Playwright
+      - run: pnpm exec playwright install chromium
+      - name: diagnostic (temporary) - does ps -E show a process environment here?
+        run: |
+          csrutil status || true
+          env -i TMPDIR=/tmp/probe-marker-xyz /bin/sleep 30 & p=$!; sleep 1
+          ps -E -ww -o pid=,command= -p $p; kill $p
       - run: pnpm test
