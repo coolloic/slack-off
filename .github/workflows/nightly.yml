@@ -38,7 +38,7 @@ jobs:
       - run: pnpm e2e
       - run: scripts/fresh-clone-check.sh
       - if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-traces
           path: test-results/
