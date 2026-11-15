@@ -25,10 +25,10 @@ Not covered automatically (hence the checks below): a real Jira Cloud site, a re
 
 ## Prerequisites
 
-- [ ] Node 26, pnpm, git, `pnpm install` done; Claude Code installed.
-- [ ] A fresh data dir: `SLACKOFF_HOME=$(mktemp -d) pnpm dev:server` and `pnpm dev:web`, then open http://127.0.0.1:5173. **Start the server from a shell without secrets in its environment** (no `GH_TOKEN`, no `ANTHROPIC_*`).
-- [ ] A **test** Jira Cloud site (or a test project you may write to) with a test ticket `TEST-1` that has an image attachment, an inline image in its description and more than one comment, and more than 100 open tickets assigned to you (or `discoverLimit` lowered, to force more than one page). An API token for that account from your Atlassian account settings.
-- [ ] A **test** Anthropic API key with a small budget.
+- [x] Node 26, pnpm, git, `pnpm install` done; Claude Code installed. — verified 2026-11-16: Node v26.13.0, pnpm 12.6.0, git 2.39.5, `pnpm install --frozen-lockfile` OK, `claude --version` 2.1.325.
+- [x] A fresh data dir: `SLACKOFF_HOME=$(mktemp -d) pnpm dev:server` and `pnpm dev:web`, then open http://127.0.0.1:5173. **Start the server from a shell without secrets in its environment** (no `GH_TOKEN`, no `ANTHROPIC_*`). — verified 2026-11-16: fresh `mktemp -d` SLACKOFF_HOME; `pnpm dev:server` and `pnpm dev:web` started under `env -i` (HOME, PATH, TMPDIR only: no `GH_TOKEN`, no `ANTHROPIC_*`); `/api/status` 200 through :5173; checked `ps eww` of the server: no secret variables.
+- [ ] A **test** Jira Cloud site (or a test project you may write to) with a test ticket `TEST-1` that has an image attachment, an inline image in its description and more than one comment, and more than 100 open tickets assigned to you (or `discoverLimit` lowered, to force more than one page). An API token for that account from your Atlassian account settings. — needs author: set up a test Jira Cloud site with `TEST-1` (image attachment, inline image, several comments), 100+ open tickets or a lower `discoverLimit`, and an API token.
+- [ ] A **test** Anthropic API key with a small budget. — needs author: create a test Anthropic API key with a small budget.
 
 ## 0. The task 1 values not yet checked
 
@@ -40,24 +40,24 @@ Result: ____ / Date: ____ / Notes: ____
 
 Settings → JIRA → "JIRA API — email and API token", enter the email and token, Save settings.
 
-- [ ] Fetch new tickets: more than one result page is read (the Tickets list shows every open ticket up to the limit, or "Showing X of Y" when the limit is lower), and no `jira-browser` run appears.
-- [ ] Refine `TEST-1`: the snapshot shows the title, the description as text, every comment in order and the image attachment **visible**; the inline image is listed as an inline image.
+- [ ] Fetch new tickets: more than one result page is read (the Tickets list shows every open ticket up to the limit, or "Showing X of Y" when the limit is lower), and no `jira-browser` run appears. — needs author: fetch in JIRA API mode against the test site; expect paging and no `jira-browser` run.
+- [ ] Refine `TEST-1`: the snapshot shows the title, the description as text, every comment in order and the image attachment **visible**; the inline image is listed as an inline image. — needs author: refine TEST-1 in API mode; check description, comments, visible image attachment, inline image listed.
 
 Result: ____ / Date: ____ / Notes: ____
 
 ## 2. JIRA API mode writes (test tickets only)
 
-- [ ] Turn on JIRA status sync, develop a test ticket and confirm its In Progress write: it moves in JIRA, and the read-back shows "Moved to In Progress in JIRA".
-- [ ] The same write again when the ticket already shows the target: "Already In Progress in JIRA — nothing to change", nothing sent.
-- [ ] A target status name that does not exist in the workflow (set In-progress status to `No Such Status`): `transition_unavailable` ("JIRA offers no transition to …"), no similar status is picked.
-- [ ] Send a multi-line requirement-unclear comment: it appears in JIRA exactly as typed (line breaks kept), once.
+- [ ] Turn on JIRA status sync, develop a test ticket and confirm its In Progress write: it moves in JIRA, and the read-back shows "Moved to In Progress in JIRA". — needs author: status sync on, develop a test ticket, confirm the In Progress write and its read-back.
+- [ ] The same write again when the ticket already shows the target: "Already In Progress in JIRA — nothing to change", nothing sent. — needs author: repeat the write; expect "Already In Progress in JIRA — nothing to change".
+- [ ] A target status name that does not exist in the workflow (set In-progress status to `No Such Status`): `transition_unavailable` ("JIRA offers no transition to …"), no similar status is picked. — needs author: set In-progress status to `No Such Status`; expect `transition_unavailable`.
+- [ ] Send a multi-line requirement-unclear comment: it appears in JIRA exactly as typed (line breaks kept), once. — needs author: send a multi-line comment to the test ticket; check line breaks and a single post.
 
 Result: ____ / Date: ____ / Notes: ____
 
 ## 3. A wrong token
 
-- [ ] Replace the token with a wrong one (fake, 16+ characters) and fetch: the banner says "The JIRA API token was rejected — update it in Settings → JIRA" (or, for a write, "JIRA rejected the API token — update it in Settings → JIRA").
-- [ ] `grep -r <the wrong token> $SLACKOFF_HOME` finds it only in `credentials.json`; the server's console output and the audit log do not contain it.
+- [ ] Replace the token with a wrong one (fake, 16+ characters) and fetch: the banner says "The JIRA API token was rejected — update it in Settings → JIRA" (or, for a write, "JIRA rejected the API token — update it in Settings → JIRA"). — needs author: needs a real Jira that rejects the token (fake mode's Jira API does not); check the banner wording.
+- [ ] `grep -r <the wrong token> $SLACKOFF_HOME` finds it only in `credentials.json`; the server's console output and the audit log do not contain it. — needs author: after the wrong-token check, grep the token in `$SLACKOFF_HOME`, the server output and the audit log.
 
 Result: ____ / Date: ____ / Notes: ____
 
@@ -65,21 +65,21 @@ Result: ____ / Date: ____ / Notes: ____
 
 Settings → Executor → "Anthropic API key", enter the test key, Save settings (JIRA must be in the API mode).
 
-- [ ] Take a test ticket from refining to proposed solutions. In `slackoff.db`, `SELECT role, executor, cost_usd FROM agent_run` shows `claude-api` and a cost for each run.
-- [ ] Your `~/.claude` is untouched (modification times unchanged); `$SLACKOFF_HOME/claude-api-config` exists with mode 700.
+- [ ] Take a test ticket from refining to proposed solutions. In `slackoff.db`, `SELECT role, executor, cost_usd FROM agent_run` shows `claude-api` and a cost for each run. — needs author: with the test API key, refine → proposed solutions; check `agent_run` rows show `claude-api` and a cost.
+- [ ] Your `~/.claude` is untouched (modification times unchanged); `$SLACKOFF_HOME/claude-api-config` exists with mode 700. — needs author: after an API-key run, compare `~/.claude` mtimes and check `claude-api-config` is mode 700.
 
 Result: ____ / Date: ____ / Notes: ____
 
 ## 5. credentials.json permissions
 
-- [ ] `ls -l $SLACKOFF_HOME/credentials.json` shows `-rw-------` and your user.
-- [ ] `chmod 644` it and reload Settings: the credentials report "credentials.json must be a regular file with mode 600 owned by you" (or the API modes fail with it); `chmod 600` restores it.
+- [x] `ls -l $SLACKOFF_HOME/credentials.json` shows `-rw-------` and your user. — verified 2026-11-16: fake JIRA credential (you@example.com, fake token) saved through `PUT /api/credentials/jira` on a fresh home; `ls -l` shows `-rw-------`, owner = me.
+- [x] `chmod 644` it and reload Settings: the credentials report "credentials.json must be a regular file with mode 600 owned by you" (or the API modes fail with it); `chmod 600` restores it. — verified 2026-11-16: after `chmod 644`, `GET /api/credentials` returned `{"error":"credentials.json must be a regular file with mode 600 owned by you"}`; `chmod 600` restored the normal status.
 
 Result: ____ / Date: ____ / Notes: ____
 
 ## 6. The phone never sees a value
 
-- [ ] On a paired phone, Settings → Executor and JIRA: both switches are read-only; each credential says "Set on this computer" or "Not set"; no box, no Replace / Remove, no email hint. View the page source on the phone (or the phone's `GET /api/credentials`): no token, key or email.
+- [ ] On a paired phone, Settings → Executor and JIRA: both switches are read-only; each credential says "Set on this computer" or "Not set"; no box, no Replace / Remove, no email hint. View the page source on the phone (or the phone's `GET /api/credentials`): no token, key or email. — needs author: pair your phone and check the credential fields and `GET /api/credentials` there.
 
 Result: ____ / Date: ____ / Notes: ____
 
@@ -87,8 +87,8 @@ Result: ____ / Date: ____ / Notes: ____
 
 Slack Off's file-tool guard refuses any path with `..`, a leading `~` or braces, and follows symlinks before allowing a path. Record what Claude Code itself does, in a development run on a throwaway repository:
 
-- [ ] Read / Edit / Write with a path containing `..`, starting with `~`, and a Glob with braces: what does Claude Code resolve them to (the guard refuses all of them; note whether a refusal is visible in the run log)?
-- [ ] Grep and Glob over a directory that contains a symlink pointing outside it: do they follow the link? (Ruling F4B-1: the guard now walks the searched tree without following links, at most 50k entries, and refuses the call if any link in it resolves outside the run's roots, so the expected result is a refusal "the searched folder holds a symbolic link that leads outside the directories of this run". Record whether Claude Code would have followed the link; the README residual on the file-tool guard stays until this is answered.)
+- [ ] Read / Edit / Write with a path containing `..`, starting with `~`, and a Glob with braces: what does Claude Code resolve them to (the guard refuses all of them; note whether a refusal is visible in the run log)? — needs author: development run on a throwaway repo; record what Claude Code resolves `..`, `~` and brace paths to.
+- [ ] Grep and Glob over a directory that contains a symlink pointing outside it: do they follow the link? (Ruling F4B-1: the guard now walks the searched tree without following links, at most 50k entries, and refuses the call if any link in it resolves outside the run's roots, so the expected result is a refusal "the searched folder holds a symbolic link that leads outside the directories of this run". Record whether Claude Code would have followed the link; the README residual on the file-tool guard stays until this is answered.) — needs author: record whether Claude Code's Grep/Glob follow an outward symlink; update the README residual.
 
 Conclusion (write it here): ____
 
@@ -96,14 +96,14 @@ Result: ____ / Date: ____ / Notes: ____
 
 ## 8. E1: the `apiKeyHelper` runs outside the sandbox (ruling 4B-12)
 
-- [ ] In API-key mode, run a development step. Expected: the run authenticates. That shows the real CLI ran the `apiKeyHelper` **without** going through `CLAUDE_CODE_SHELL_PREFIX`, since the helper reads `credentials.json`, which no sandbox can read. If the CLI did run it through the prefix, the run fails with "The Anthropic API key was rejected — update it in Settings". Record which.
-- [ ] Also confirm the CLI honours `apiKeyHelper` with `--setting-sources ""` at all: the stream-json `init` event's `apiKeySource` must be exactly `"apiKeyHelper"` (`API_KEY_SOURCE_HELPER` in `executor/claude-api.ts`, ruling F4B-3). Slack Off stops and fails every API-key run whose `init` reports another value or none ("Stopped: this run was not authenticated with your Anthropic API key (Claude Code reported apiKeySource …)"). If the real CLI reports a different value for the helper, every API run fails visibly: record the value and update the constant.
-- [ ] Run one acceptance step in API-key mode with `acceptance.claudeConfigDir` holding a subscription login: expected `apiKeySource` `"apiKeyHelper"` (the helper wins), never `"none"`. If it reports the login, the run is stopped — record it.
+- [ ] In API-key mode, run a development step. Expected: the run authenticates. That shows the real CLI ran the `apiKeyHelper` **without** going through `CLAUDE_CODE_SHELL_PREFIX`, since the helper reads `credentials.json`, which no sandbox can read. If the CLI did run it through the prefix, the run fails with "The Anthropic API key was rejected — update it in Settings". Record which. — needs author: API-key mode development step; record whether the `apiKeyHelper` ran outside `CLAUDE_CODE_SHELL_PREFIX`.
+- [ ] Also confirm the CLI honours `apiKeyHelper` with `--setting-sources ""` at all: the stream-json `init` event's `apiKeySource` must be exactly `"apiKeyHelper"` (`API_KEY_SOURCE_HELPER` in `executor/claude-api.ts`, ruling F4B-3). Slack Off stops and fails every API-key run whose `init` reports another value or none ("Stopped: this run was not authenticated with your Anthropic API key (Claude Code reported apiKeySource …)"). If the real CLI reports a different value for the helper, every API run fails visibly: record the value and update the constant. — needs author: check the `init` event's `apiKeySource` is exactly `"apiKeyHelper"`; this is what makes API-key mode work at all (README still says unverified).
+- [ ] Run one acceptance step in API-key mode with `acceptance.claudeConfigDir` holding a subscription login: expected `apiKeySource` `"apiKeyHelper"` (the helper wins), never `"none"`. If it reports the login, the run is stopped — record it. — needs author: acceptance step in API-key mode with a subscription login in `acceptance.claudeConfigDir`; expect `apiKeySource` `"apiKeyHelper"`.
 
 Result: ____ / Date: ____ / Notes: ____
 
 ## 9. E2: the key is not copied into child environments (ruling 4B-12)
 
-- [ ] In the development sandbox and in the acceptance sandbox, have a command print `env` and run task 6's procargs probe (the `KERN_PROCARGS2` reader built in `claude-api.test.ts`) against the `claude` process and its children — the shell-prefix wrapper (the `/bin/sh` that runs the platform's `CLAUDE_CODE_SHELL_PREFIX` script around every Bash command), the Bash commands themselves, hooks and MCP servers: the test key appears in none of them. If it does appear anywhere, write it in the README's residual risks.
+- [ ] In the development sandbox and in the acceptance sandbox, have a command print `env` and run task 6's procargs probe (the `KERN_PROCARGS2` reader built in `claude-api.test.ts`) against the `claude` process and its children — the shell-prefix wrapper (the `/bin/sh` that runs the platform's `CLAUDE_CODE_SHELL_PREFIX` script around every Bash command), the Bash commands themselves, hooks and MCP servers: the test key appears in none of them. If it does appear anywhere, write it in the README's residual risks. — needs author: print `env` and run the procargs probe in both sandboxes with the test key; the key must appear nowhere.
 
 Result: ____ / Date: ____ / Notes: ____

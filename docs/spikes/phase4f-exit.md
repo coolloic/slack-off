@@ -44,13 +44,13 @@ Use a throwaway repository with a small Node CLI:
 
 Map the repository to a test project and take a ticket through development and **Hand off**.
 
-- [ ] The agent's cases appear under `acceptance/<repo>/cases/`. There is at least one happy and one error case per AC.
-- [ ] The report shows a command block per cited case, and each block starts with `$ ./bin/<tool>.mjs`.
-- [ ] Break the CLI on purpose (wrong exit code). The AC fails in the platform's own re-run, even if the agent's own run looked fine.
-- [ ] `install` and `build` ran (the CLI used the built output), with `"install": "pnpm install"` and a `build` step: the server's `PATH` and `HOME` reach them. A failing `build` reports "E2E not executed: the build failed: …".
-- [ ] With an AC broken on purpose, the fix round's note (Development tab, iteration "review_failed") quotes the case JSON, the platform's command line, its exit code and the end of its output.
-- [ ] A `testCommand` in the rules file shows under "Your project's own tests" with its result; it never changes an AC.
-- [ ] A `cli.command` path that does not exist reports "… does not exist in the exported snapshot".
+- [ ] The agent's cases appear under `acceptance/<repo>/cases/`. There is at least one happy and one error case per AC. — needs author: throwaway CLI repo (`entry: "cli"`), real `claude` through development and Hand off.
+- [ ] The report shows a command block per cited case, and each block starts with `$ ./bin/<tool>.mjs`. — needs author: same run: check each block starts with `$ ./bin/<tool>.mjs`.
+- [ ] Break the CLI on purpose (wrong exit code). The AC fails in the platform's own re-run, even if the agent's own run looked fine. — needs author: break the CLI's exit code; the platform re-run must fail the AC.
+- [ ] `install` and `build` ran (the CLI used the built output), with `"install": "pnpm install"` and a `build` step: the server's `PATH` and `HOME` reach them. A failing `build` reports "E2E not executed: the build failed: …". — needs author: same repo with `install`/`build`; also a failing build → "E2E not executed: the build failed".
+- [ ] With an AC broken on purpose, the fix round's note (Development tab, iteration "review_failed") quotes the case JSON, the platform's command line, its exit code and the end of its output. — needs author: check the review_failed note quotes the case JSON, command, exit code and output.
+- [ ] A `testCommand` in the rules file shows under "Your project's own tests" with its result; it never changes an AC. — needs author: add a `testCommand`; it shows under "Your project's own tests" and never changes an AC.
+- [ ] A `cli.command` path that does not exist reports "… does not exist in the exported snapshot". — needs author: point `cli.command` at a missing path; expect "does not exist in the exported snapshot".
 
 Result: ____
 
@@ -58,9 +58,9 @@ Result: ____
 
 Use a throwaway Node package. Its rules file declares `acceptance: {entry: "library", library: {runtime: "node", import: "<package name>"}}`.
 
-- [ ] The agent writes examples under `acceptance/<repo>/examples/*.mjs` that import the package by its name, and cases that name them.
-- [ ] The report shows each example's run (`$ node examples/<name>.mjs`), **the example's code** in its own block, and its output (390px: the code block scrolls inside itself).
-- [ ] An example that imports `node:fs`, or uses `process`, is refused by the guard; the message names the file.
+- [ ] The agent writes examples under `acceptance/<repo>/examples/*.mjs` that import the package by its name, and cases that name them. — needs author: throwaway Node library repo (`entry: "library"`) through acceptance with the real `claude`.
+- [ ] The report shows each example's run (`$ node examples/<name>.mjs`), **the example's code** in its own block, and its output (390px: the code block scrolls inside itself). — needs author: same run: check the run, code and output blocks (and the 390px scroll).
+- [ ] An example that imports `node:fs`, or uses `process`, is refused by the guard; the message names the file. — needs author: have an example import `node:fs` in the real run; the guard must refuse it naming the file.
 
 Result: ____
 
@@ -70,8 +70,8 @@ Use a CLI that needs a terminal: a full-screen prompt, or a password read from `
 
 Flag it in the rules file: `"cli": { "command": "./bin/<tool>.mjs", "interactive": true }`.
 
-- [ ] The report says **E2E not executed: interactive CLIs are not supported** (naming the repository), every AC is "Not tested" and no acceptance agent ran.
-- [ ] Without the flag, the run does not pass and nothing hangs past `acceptance.caseTimeoutMs` (the cases fail visibly: EOF on stdin, exit 13 from a pending prompt).
+- [ ] The report says **E2E not executed: interactive CLIs are not supported** (naming the repository), every AC is "Not tested" and no acceptance agent ran. — needs author: interactive CLI with `"interactive": true`; expect not executed, every AC Not tested.
+- [ ] Without the flag, the run does not pass and nothing hangs past `acceptance.caseTimeoutMs` (the cases fail visibly: EOF on stdin, exit 13 from a pending prompt). — needs author: same CLI without the flag; nothing hangs past `caseTimeoutMs`.
 
 Result: ____
 
@@ -81,8 +81,8 @@ Result: ____
 
 - [ ] Both forms ran under the exact rule `Bash(slackoff-cases run)`:
   - `cd <work dir>/acceptance && slackoff-cases run`;
-  - a bare `slackoff-cases run` (the Bash tool keeps its working directory).
-- [ ] Anything else was denied: `slackoff-cases run; touch x`, `node bin/x.mjs`, `./bin/<tool>.mjs`.
+  - a bare `slackoff-cases run` (the Bash tool keeps its working directory). — needs author: real acceptance agent on the check-0 repo; record both forms from the Activity tab.
+- [ ] Anything else was denied: `slackoff-cases run; touch x`, `node bin/x.mjs`, `./bin/<tool>.mjs`. — needs author: same run: record that the other commands were denied.
 
 Seen in the run's log (Activity tab):
 

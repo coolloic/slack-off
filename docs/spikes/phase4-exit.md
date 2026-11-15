@@ -50,6 +50,8 @@ Each sub-plan has its own manual checklist against real services. Status when ph
 | 4e · open-source release | this file and [docs/release/release-checklist.md](../release/release-checklist.md) | the third-party run below |
 | 4f · acceptance for command-line tools and Node libraries | [phase4f-exit.md](phase4f-exit.md) | not checked (14 open) |
 
+2026-11-16 audit (after publishing): every open item in these five files is annotated as verified, "needs author" or superseded; counts and the author's to-do list are in [docs/release/audit-2026-11-16.md](../release/audit-2026-11-16.md).
+
 ## Third-party run (the exit condition)
 
 **Who:** one person who has never worked on Slack Off, on **their own Mac**, using **only** the README and `docs/install.md`. No help from the author while they work, except to unblock them after they have written down where they got stuck. They use a **test JIRA** project (or a free Jira Cloud site) and test repositories, never work data.
@@ -61,10 +63,10 @@ Each sub-plan has its own manual checklist against real services. Status when ph
    - Chrome with Claude in Chrome already set up? (yes / no): ____
    - `gh` already logged in? (yes / no): ____
 1. **Fake mode.** Follow the install guide up to step 6 and see the ticket list in fake mode (FAKE-1, FAKE-2, FAKE-3).
-   - [ ] Done. Time from a clean start: ____ min
+   - [ ] Done. Time from a clean start: ____ min — needs a third party: the run must be someone who has never seen the project. Author-side stand-in 2026-11-16 (not a third party): clone of https://github.com/coolloic/slack-off.git into a temp folder, README Quick start verbatim (Node v26.13.0, pnpm 12.6.0, `pnpm install`, `pnpm start` with a temp SLACKOFF_HOME) → `/api/status` 200, `jira.configured: false`; README fake mode → Fetch new tickets returned FAKE-1, FAKE-2, FAKE-3; clone + install about 1.5 min. Finding: a clone under `/private/tmp` shows the sandbox self-check as failed (see docs/release/audit-2026-11-16.md).
 2. **Real Claude and a test JIRA.** Connect your own Claude (subscription **or** API key, either one) and a test JIRA (browser **or** API mode, either one). Map one test repository. Fetch a test ticket and take it as far as **choosing a solution**: refine, review the ACs, see the proposed solutions, choose one.
    - Modes used: Claude ____ / JIRA ____
-   - [ ] Done. Time: ____ min
+   - [ ] Done. Time: ____ min — needs a third party: the tester connects their own Claude and a test JIRA and takes a test ticket to a chosen solution.
 3. **Every place you got stuck.** For each one: the README or install-guide section, what happened, how long it took, and how it was solved.
 
    | # | Section (README / install.md) | What happened | Time lost | How it was solved |
@@ -74,7 +76,7 @@ Each sub-plan has its own manual checklist against real services. Status when ph
    | 3 | | | | |
 
 4. **Optional: the phone.** Turn on remote access over Tailscale, pair a phone and open the ticket from step 2 there.
-   - [ ] Done / [ ] skipped. Notes: ____
+   - [ ] Done / [ ] skipped. Notes: ____ — needs a third party: optional; the tester's own phone over Tailscale.
 
 Result: ____ / Date: ____ / Notes: ____
 
@@ -82,6 +84,6 @@ Every problem found here is fixed in the README or the install guide before publ
 
 ## Before publishing: the author confirms
 
-- [ ] **LICENSE chosen and committed:** MIT, `LICENSE` in the tree (phase 4e Task 2; [license-decision.md](../release/license-decision.md)).
-- [ ] **History decided:** publish from one new, history-free commit (option B; [history-rewrite-proposal.md](../release/history-rewrite-proposal.md)), with the checks on that fresh clone done.
-- [ ] **Release checklist read:** [docs/release/release-checklist.md](../release/release-checklist.md). Every step in it is the author's. Slack Off's plans do not push, change visibility, tag, release or publish.
+- [x] **LICENSE chosen and committed:** MIT, `LICENSE` in the tree (phase 4e Task 2; [license-decision.md](../release/license-decision.md)). — done 2026-11-16: `LICENSE` (MIT) in the published commit; every `package.json` says MIT; GitHub detects MIT.
+- [x] **History decided:** publish from one new, history-free commit (option B; [history-rewrite-proposal.md](../release/history-rewrite-proposal.md)), with the checks on that fresh clone done. — done 2026-11-16: option B; the public repository starts from one commit `33a3177 Initial commit` (public noreply identity), checked on a single-branch clone: `pnpm check:public` 0 findings, `scripts/scan-history.mjs` 0 private hits.
+- [x] **Release checklist read:** [docs/release/release-checklist.md](../release/release-checklist.md). Every step in it is the author's. Slack Off's plans do not push, change visibility, tag, release or publish. — done 2026-11-16: worked through on the release day; see the ticks in docs/release/release-checklist.md (v0.1.0 tag still open). The release was performed with the author's explicit approval.

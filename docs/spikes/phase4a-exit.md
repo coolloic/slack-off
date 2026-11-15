@@ -25,18 +25,18 @@ Not covered automatically (hence the checks below): a real husky + lint-staged +
 
 ## Prerequisites
 
-- [ ] Node 26, pnpm, git, `pnpm install` done; Claude Code installed and logged in.
-- [ ] A fresh data dir: `SLACKOFF_HOME=$(mktemp -d) pnpm dev:server` and `pnpm dev:web`, then open http://127.0.0.1:5173. Settings → Workflow shows "Sandbox: on (macOS sandbox-exec)".
-- [ ] A **throwaway test repository** at `/path/to/test-repo` (mapped as `TEST` → `web`, base `main`) and a test JIRA ticket `TEST-1`.
+- [ ] Node 26, pnpm, git, `pnpm install` done; Claude Code installed and logged in. — needs author: confirm `claude` is installed and logged in (subscription); the rest checked 2026-11-16: Node v26.13.0, pnpm 12.6.0, git 2.39.5, `pnpm install --frozen-lockfile` OK, `claude --version` 2.1.325.
+- [x] A fresh data dir: `SLACKOFF_HOME=$(mktemp -d) pnpm dev:server` and `pnpm dev:web`, then open http://127.0.0.1:5173. Settings → Workflow shows "Sandbox: on (macOS sandbox-exec)". — verified 2026-11-16: fresh `mktemp -d` SLACKOFF_HOME; `pnpm dev:server` and `pnpm dev:web` started under `env -i` (HOME, PATH, TMPDIR only: no `GH_TOKEN`, no `ANTHROPIC_*`); `/api/status` 200 through :5173; headless Chromium, Settings → Workflow: `sandbox-status` reads "Sandbox: on (macOS sandbox-exec)".
+- [ ] A **throwaway test repository** at `/path/to/test-repo` (mapped as `TEST` → `web`, base `main`) and a test JIRA ticket `TEST-1`. — needs author: create a throwaway repo at /path/to/test-repo, map `TEST` → `web` (base `main`), and a test JIRA ticket `TEST-1`.
 
 ## 0. A real husky + lint-staged + commitlint repository
 
 Set the test repository up with husky v9 (`.husky/pre-commit` running `npx lint-staged`, `.husky/commit-msg` running `npx commitlint --edit "$1"`), a lint-staged config that formats `*.js`, and an `install` command in `.slackoff/config.json` (`pnpm install`), so `.husky/_` exists in the worktree.
 
-- [ ] Develop `TEST-1` to `dev_done`: every step commits; the formatted files are what is committed; the development tab shows the hooks' output.
-- [ ] Make lint fail on purpose (stage a file the lint step rejects): the step shows `hook_failed` with lint's output; nothing is committed; the next step fixes it.
-- [ ] Add to the pre-commit hook a probe `node -e "fetch('http://127.0.0.1:4317/api/status').then(() => console.log('REACHED'), (e) => console.log('refused', e.cause?.code))"`: the step's hook output says `refused EPERM`, never `REACHED`.
-- [ ] Note whether lint-staged prints a warning about `packed-refs.lock` (its backup stash cannot be deleted through `packed-refs` inside the sandbox) and whether `git stash list` in the worktree is empty afterwards.
+- [ ] Develop `TEST-1` to `dev_done`: every step commits; the formatted files are what is committed; the development tab shows the hooks' output. — needs author: develop TEST-1 with the real `claude` on the husky + lint-staged + commitlint test repo; check commits and hook output.
+- [ ] Make lint fail on purpose (stage a file the lint step rejects): the step shows `hook_failed` with lint's output; nothing is committed; the next step fixes it. — needs author: stage a file the lint step rejects during a real development step; expect `hook_failed`, nothing committed.
+- [ ] Add to the pre-commit hook a probe `node -e "fetch('http://127.0.0.1:4317/api/status').then(() => console.log('REACHED'), (e) => console.log('refused', e.cause?.code))"`: the step's hook output says `refused EPERM`, never `REACHED`. — needs author: add the fetch probe to `.husky/pre-commit`, develop once; expect `refused EPERM`.
+- [ ] Note whether lint-staged prints a warning about `packed-refs.lock` (its backup stash cannot be deleted through `packed-refs` inside the sandbox) and whether `git stash list` in the worktree is empty afterwards. — needs author: after check 0, record lint-staged's `packed-refs.lock` warning and `git stash list`.
 
 Result: ____ / Date: ____ / Notes: ____
 
@@ -44,20 +44,20 @@ Result: ____ / Date: ____ / Notes: ____
 
 Only if you sign commits (`commit.gpgsign` / `gpg.format ssh`).
 
-- [ ] A development step's commit is signed (`git log --show-signature -1` in the worktree): signing happens in the platform's own `git`, outside the sandbox; the hooks still run sandboxed.
+- [ ] A development step's commit is signed (`git log --show-signature -1` in the worktree): signing happens in the platform's own `git`, outside the sandbox; the hooks still run sandboxed. — needs author: only if you sign commits: `git log --show-signature -1` in the worktree after a real development step.
 
 Result: ____ / Date: ____ / Notes: ____
 
 ## 2. Real `claude` Bash under the development wrapper (carried from phase 3 exit check 9)
 
-- [ ] In a development step the real `claude` runs one of the repository's declared commands through its Bash rule: the command exits 0 (no spurious non-zero exits), and its cwd file (`/private/tmp/claude-*-cwd`) is written. Look at the raw run log under `$SLACKOFF_HOME/runs/`.
-- [ ] Inside that command `env` shows no `ANTHROPIC_*`, `CLAUDE_CODE_*`, `GH_TOKEN` or other token variables (start the server with a fake `GH_TOKEN=fake` to check).
+- [ ] In a development step the real `claude` runs one of the repository's declared commands through its Bash rule: the command exits 0 (no spurious non-zero exits), and its cwd file (`/private/tmp/claude-*-cwd`) is written. Look at the raw run log under `$SLACKOFF_HOME/runs/`. — needs author: real development step; read the raw run log under `$SLACKOFF_HOME/runs/` for exit 0 and the cwd file.
+- [ ] Inside that command `env` shows no `ANTHROPIC_*`, `CLAUDE_CODE_*`, `GH_TOKEN` or other token variables (start the server with a fake `GH_TOKEN=fake` to check). — needs author: start with `GH_TOKEN=fake`, have a declared command print `env` in a real development step.
 
 Result: ____ / Date: ____ / Notes: ____
 
 ## 3. The keychain (carried from phase 3 exit check 9, unchanged)
 
-- [ ] The keychain through the security daemons (mach-lookup to `com.apple.SecurityServer` / `com.apple.securityd.*`) is denied in every profile, but only checked on the profile text, **not probed** at run time. Create a throwaway item (`security add-generic-password -s slackoff-probe -a test -w throwaway`), then from a sandboxed development test run `security find-generic-password -s slackoff-probe -w` and note what happens (expected: it fails and prints no password). Delete the item afterwards (`security delete-generic-password -s slackoff-probe`). Never probe a real credential.
+- [ ] The keychain through the security daemons (mach-lookup to `com.apple.SecurityServer` / `com.apple.securityd.*`) is denied in every profile, but only checked on the profile text, **not probed** at run time. Create a throwaway item (`security add-generic-password -s slackoff-probe -a test -w throwaway`), then from a sandboxed development test run `security find-generic-password -s slackoff-probe -w` and note what happens (expected: it fails and prints no password). Delete the item afterwards (`security delete-generic-password -s slackoff-probe`). Never probe a real credential. — needs author: run the throwaway keychain probe yourself (audit sessions must not touch the keychain); delete the item afterwards.
 
 Result: ____ / Date: ____ / Notes: ____
 
@@ -65,16 +65,16 @@ Result: ____ / Date: ____ / Notes: ____
 
 Use a test repository whose `node --test` suite starts an HTTP server on a fixed port (say 7001) and requests it.
 
-- [ ] Settings → Workflow → Local network: "Allow declared ports only" (this computer). Without `sandbox.localPorts`, the test step fails (the connect is refused: `EPERM`).
-- [ ] Commit `"sandbox": { "localPorts": [7001] }` to the base branch's `.slackoff/config.json`, Retry: the tests pass.
-- [ ] Note anything that relies on outbound IPv6 (allowlist mode refuses all outbound IPv6 TCP): installs from a registry reached over IPv6, a dev server bound to `::1` only.
-- [ ] Switch back to "Deny listed ports".
+- [ ] Settings → Workflow → Local network: "Allow declared ports only" (this computer). Without `sandbox.localPorts`, the test step fails (the connect is refused: `EPERM`). — needs author: test repo whose `node --test` suite serves on port 7001; switch to allowlist and develop with the real `claude`.
+- [ ] Commit `"sandbox": { "localPorts": [7001] }` to the base branch's `.slackoff/config.json`, Retry: the tests pass. — needs author: after the previous check: commit the `localPorts` declaration, Retry, expect the tests to pass.
+- [ ] Note anything that relies on outbound IPv6 (allowlist mode refuses all outbound IPv6 TCP): installs from a registry reached over IPv6, a dev server bound to `::1` only. — needs author: note IPv6-only installs or dev servers seen during check 4.
+- [ ] Switch back to "Deny listed ports". — needs author: switch Local network back after check 4.
 
 Result: ____ / Date: ____ / Notes: ____
 
 ## 5. Residual risks to confirm you have read
 
-- [ ] README → "Security notes for development" (Git hooks in the sandbox, allowlist mode, the environment strip and its install exception, UDP not filtered) and "Residual risks": sandboxed code still reaches the internet, UDP is not filtered, secrets under other names get through, a hook can add objects (never replace, delete or chmod an existing one, nor write packs, alternates or the commit-graph) — including a planted object for a future write of this ticket's own commits — stage content into the commit it runs for, and rewrite or delete its own ticket branch ref, nested repositories and submodules are refused (no `.git` can be created in a worktree; the platform refuses an embedded repository, a populated submodule or a new / moved gitlink before committing, and never looks into submodules), a hooks directory over 1 MiB per file or 16 MiB in all blocks development (fail closed), reverting a file re-checks for swapped-in symlinks but cannot exclude a swap in the instant before the delete, a hook that commits again fails, a hook changed between the fingerprint check and git running it still runs (sandboxed), process-group escape (`setsid`) is not probed, not sandboxed: the `claude` process itself and `gh`. Noted: ____
+- [ ] README → "Security notes for development" (Git hooks in the sandbox, allowlist mode, the environment strip and its install exception, UDP not filtered) and "Residual risks": sandboxed code still reaches the internet, UDP is not filtered, secrets under other names get through, a hook can add objects (never replace, delete or chmod an existing one, nor write packs, alternates or the commit-graph) — including a planted object for a future write of this ticket's own commits — stage content into the commit it runs for, and rewrite or delete its own ticket branch ref, nested repositories and submodules are refused (no `.git` can be created in a worktree; the platform refuses an embedded repository, a populated submodule or a new / moved gitlink before committing, and never looks into submodules), a hooks directory over 1 MiB per file or 16 MiB in all blocks development (fail closed), reverting a file re-checks for swapped-in symlinks but cannot exclude a swap in the instant before the delete, a hook that commits again fails, a hook changed between the fingerprint check and git running it still runs (sandboxed), process-group escape (`setsid`) is not probed, not sandboxed: the `claude` process itself and `gh`. Noted: ____ — needs author: read README → Security model and residual risks and fill in "Noted".
 
 ## Deferred (known, not fixed in phase 4a)
 
