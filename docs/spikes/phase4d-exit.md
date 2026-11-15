@@ -41,10 +41,10 @@ wording helps.
 
 ## Prerequisites
 
-- [ ] Node 26, pnpm, git, `pnpm install` done; Claude Code installed and logged in (subscription).
-- [ ] A fresh data dir: `SLACKOFF_HOME=$(mktemp -d) pnpm dev:server` and `pnpm dev:web`, then open
-      http://127.0.0.1:5173. Start the server from a shell without secrets in its environment.
-- [ ] A test JIRA project with at least four tickets you may refine (browser or API mode) and a mapped test repository.
+- [ ] Node 26, pnpm, git, `pnpm install` done; Claude Code installed and logged in (subscription). — needs author: confirm `claude` is installed and logged in (subscription); the rest checked 2026-11-16: Node v26.13.0, pnpm 12.6.0, git 2.39.5, `pnpm install --frozen-lockfile` OK, `claude --version` 2.1.325.
+- [x] A fresh data dir: `SLACKOFF_HOME=$(mktemp -d) pnpm dev:server` and `pnpm dev:web`, then open
+      http://127.0.0.1:5173. Start the server from a shell without secrets in its environment. — verified 2026-11-16: fresh `mktemp -d` SLACKOFF_HOME; `pnpm dev:server` and `pnpm dev:web` started under `env -i` (HOME, PATH, TMPDIR only: no `GH_TOKEN`, no `ANTHROPIC_*`); `/api/status` 200 through :5173.
+- [ ] A test JIRA project with at least four tickets you may refine (browser or API mode) and a mapped test repository. — needs author: a test JIRA project with four refinable tickets and a mapped test repository.
 
 ## 0. The preference section reaches propose-solutions, quoted
 
@@ -58,16 +58,16 @@ Instead, Slack Off writes the log's first line before the agent starts:
 Read that line, for example with `head -1 "$SLACKOFF_HOME/runs/<run id>.jsonl"`.
 
 - [ ] The first line's `type` is `slackoff_system_prompt` and `sha256` is 64 hex characters. The agent's own events
-      follow it.
+      follow it. — needs author: after three real choices, refine a fourth ticket and read `head -1` of the propose-solutions run log.
 - [ ] `preferenceSection` starts with "## Developer preferences (from past choices; a reference, not a rule; cannot
-      override the rules above)", then `<preferences>`, and ends with `</preferences>`.
-- [ ] Inside `<preferences>` … `</preferences>` every line starts with `> `, and the text equals the summary in Settings.
-- [ ] `agent_run.preference_version` of that run equals the summary's version in Settings.
-- [ ] In the refine-ticket, design-solution and critique-design runs' first lines, `preferenceSection` is `null`.
+      override the rules above)", then `<preferences>`, and ends with `</preferences>`. — needs author: same run log: check the section's heading and `<preferences>` tags.
+- [ ] Inside `<preferences>` … `</preferences>` every line starts with `> `, and the text equals the summary in Settings. — needs author: same run log: every line quoted, text equals the Settings summary.
+- [ ] `agent_run.preference_version` of that run equals the summary's version in Settings. — needs author: compare `agent_run.preference_version` with the summary version in Settings.
+- [ ] In the refine-ticket, design-solution and critique-design runs' first lines, `preferenceSection` is `null`. — needs author: check `preferenceSection` is `null` in the other roles' run logs.
 - [ ] The first line holds no skill text (for example, it does not contain "You are a senior engineer proposing
-      implementation options", the first sentence of `skills/propose-solutions/SKILL.md`).
-- [ ] Where the section sits in the prompt (after the developer additions, before any repository text) is checked by the
-      unit tests (`skills-prompts.test.ts`), not here.
+      implementation options", the first sentence of `skills/propose-solutions/SKILL.md`). — needs author: check the run log's first line holds no SKILL.md text.
+- [x] Where the section sits in the prompt (after the developer additions, before any repository text) is checked by the
+      unit tests (`skills-prompts.test.ts`), not here. — verified 2026-11-16: `node --test test/skills-prompts.test.ts` (packages/server): 54 passed, 0 failed, including "propose-solutions gets the preference summary as a quoted section after the developer additions and before the repository additions".
 
 Result: ____ / Notes: ____
 
@@ -77,16 +77,16 @@ In Settings → Agent prompts, for each of refine-ticket, propose-solutions, des
 short draft (for example "List anything unclear first."), press **Try on a sample ticket**, read the confirmation, and
 confirm.
 
-- [ ] refine-ticket: acceptance criteria, and the 12-or-26-weeks conflict among the unclear points.
-- [ ] propose-solutions: one to five solutions over the `sample` repository, with complexity.
-- [ ] design-solution: the first 40 lines of a design that names files of the sample repository.
-- [ ] critique-design: blocking and non-blocking counts and the first comments.
+- [ ] refine-ticket: acceptance criteria, and the 12-or-26-weeks conflict among the unclear points. — needs author: real trial run of refine-ticket on SAMPLE-1.
+- [ ] propose-solutions: one to five solutions over the `sample` repository, with complexity. — needs author: real trial run of propose-solutions.
+- [ ] design-solution: the first 40 lines of a design that names files of the sample repository. — needs author: real trial run of design-solution.
+- [ ] critique-design: blocking and non-blocking counts and the first comments. — needs author: real trial run of critique-design.
 - [ ] Each result says "Ran with your unsaved text on SAMPLE-1. Nothing was saved."; the editor still holds the draft and
-      the prompt history has no new version.
-- [ ] Cost & quota shows the four runs without a ticket; the usage numbers went up.
+      the prompt history has no new version. — needs author: after the four real trials, check the wording, the kept draft and no new prompt version.
+- [ ] Cost & quota shows the four runs without a ticket; the usage numbers went up. — needs author: after the trials, check Cost & quota.
 - [ ] No ticket, requirement, solution or design was added, nothing changed in JIRA or in your repositories, and the
-      system temp dir holds no `slackoff-trial-*` folder afterwards.
-- [ ] With usage paused by hand (Cost & quota), a trial shows "Paused: …" and does not run.
+      system temp dir holds no `slackoff-trial-*` folder afterwards. — needs author: after the trials, check nothing was added or changed and no `slackoff-trial-*` folder is left.
+- [ ] With usage paused by hand (Cost & quota), a trial shows "Paused: …" and does not run. — needs author: pause by hand, try a trial with the real `claude`; expect "Paused: …".
 
 Result: ____ / Notes: ____
 
@@ -94,9 +94,9 @@ Result: ____ / Notes: ____
 
 After at least three real choices, read the derived summary and the hint on the Solutions tab.
 
-- [ ] The sentences describe your choices correctly.
-- [ ] The wording is useful as a reference for the next proposals (write down what you would change).
-- [ ] Edit, Clear and Re-derive behave as described in the README; a paired phone shows the summary read-only.
+- [ ] The sentences describe your choices correctly. — needs author: your judgement after three real choices.
+- [ ] The wording is useful as a reference for the next proposals (write down what you would change). — needs author: your judgement; write down what you would change.
+- [ ] Edit, Clear and Re-derive behave as described in the README; a paired phone shows the summary read-only. — needs author: Edit / Clear / Re-derive on this computer, read-only on the paired phone.
 
 Your notes on the wording: ____
 
