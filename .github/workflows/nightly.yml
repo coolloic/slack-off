@@ -32,9 +32,10 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck
       - run: pnpm check:public
-      - run: pnpm test
-      # the UI tests use the runner's installed Google Chrome; the acceptance re-run uses Playwright's Chromium
+      # Playwright's Chromium: the acceptance-sandbox unit tests and the acceptance re-run use it (the UI tests use the
+      # runner's installed Google Chrome)
       - run: pnpm exec playwright install chromium
+      - run: pnpm test
       - run: pnpm e2e
       - run: scripts/fresh-clone-check.sh
       - if: failure()

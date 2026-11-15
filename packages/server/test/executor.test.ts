@@ -1225,8 +1225,10 @@ test("T7-8: a recorded pgid whose live leader has another start time (a reused p
   try {
     ({ pgid } = await detachedRun({
       abort: true,
-      // phase 4f 4F-2: killLeftovers also kills what holds anything under the run root (lsof +D); a reused pid holds nothing there
-      bash: () => "echo started > started; cd / && exec /bin/sleep 600",
+      // phase 4f 4F-2: killLeftovers also kills what holds anything under the run root (lsof +D); a reused pid holds nothing there.
+      // It also kills what carries the run's TMPDIR / SLACKOFF_RUN_ROOT (`ps -E`, which shows environments only where SIP is
+      // off, as on GitHub's macOS runners); a reused pid belongs to an unrelated process, so it carries neither: env -i.
+      bash: () => "echo started > started; cd / && exec /usr/bin/env -i /bin/sleep 600",
       beforeEnd: (a, g) => {
         const rec = join(home, "sandbox", "acceptance", basename(a.runRoot), "pgids");
         const lines = readFileSync(rec, "utf8").trim().split("\n");
