@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>Slack Off</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-surface":"#283044","secondary-fixed":"#ffdcc3","surface-container-lowest":"#ffffff","secondary-fixed-dim":"#ffb77d","surface-dim":"#d2d9f4","tertiary-fixed":"#85f8c4","on-secondary-fixed":"#2f1500","on-primary-container":"#eeefff","on-tertiary-fixed":"#002114","on-primary":"#ffffff","on-primary-fixed-variant":"#003ea8","on-tertiary-container":"#bdffdc","surface-variant":"#dae2fd","primary-container":"#2563eb","on-tertiary":"#ffffff","error-container":"#ffdad6","outline":"#737686","surface-tint":"#0053db","tertiary-fixed-dim":"#68dba9","on-background":"#131b2e","on-secondary-fixed-variant":"#6e3900","surface-container-low":"#f2f3ff","inverse-on-surface":"#eef0ff","primary-fixed-dim":"#b4c5ff","background":"#faf8ff","outline-variant":"#c3c6d7","surface-container-highest":"#dae2fd","surface-container-high":"#e2e7ff","on-primary-fixed":"#00174b","on-tertiary-fixed-variant":"#005137","on-surface-variant":"#434655","on-secondary":"#ffffff","surface-bright":"#faf8ff","on-secondary-container":"#663500","primary":"#004ac6","primary-fixed":"#dbe1ff","on-error":"#ffffff","on-error-container":"#93000a","on-surface":"#131b2e","secondary":"#904d00","secondary-container":"#fe932c","surface":"#faf8ff","error":"#ba1a1a","surface-container":"#eaedff","inverse-primary":"#b4c5ff","tertiary":"#006243","tertiary-container":"#007d57"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"0.5rem",margin:"1rem","space-xl":"1rem","space-lg":"0.75rem","space-sm":"0.375rem","space-xs":"0.25rem",gutter:"0.75rem"},fontFamily:{"body-md":["Inter"],"body-sm":["Inter"],"code-md":["JetBrains Mono"],"code-sm":["JetBrains Mono"],"headline-lg":["Inter"],"headline-md":["Inter"],"label-sm":["Inter"],"headline-sm":["Inter"],"label-md":["Inter"],kbd:["JetBrains Mono"],"code-lg":["JetBrains Mono"]},fontSize:{"body-md":["13px",{lineHeight:"18px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"code-md":["12px",{lineHeight:"16px",fontWeight:"400"}],"code-sm":["11px",{lineHeight:"14px",fontWeight:"400"}],"headline-lg":["20px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-md":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"500"}],"headline-sm":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"500"}],kbd:["10px",{lineHeight:"12px",fontWeight:"500"}],"code-lg":["13px",{lineHeight:"18px",fontWeight:"500"}]}}}};</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-24 flex flex-col justify-between px-space-xl py-space-sm"><div class="flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><button aria-label="Open drawer navigation" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">menu</span></button><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[16px]">terminal</span></div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Slack Off</span></div></div><div class="flex items-center gap-space-md"><div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-code-sm text-code-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>Needs you · 2</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="flex items-center gap-space-sm min-w-0 px-space-xs text-on-surface-variant font-code-sm text-code-sm whitespace-nowrap"><div class="flex items-center gap-space-xs min-w-0"><span class="w-1.5 h-1.5 shrink-0 rounded-full bg-tertiary"></span><span class="truncate" title="Claude Code (subscription) · ready">Claude Code · ready</span></div><span class="shrink-0 text-outline-variant">|</span><div class="flex items-center gap-space-xs shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>JIRA · connected</span></div></div></div></header><main class="flex flex-col relative w-full pt-24 pb-20 bg-surface min-h-screen"><div class="flex flex-col w-full px-space-md pb-28 gap-space-md">
+<!-- Top Segmented Controls & Context Bar -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Segmented Filter Pills -->
+<div class="flex items-center p-1 rounded-xl bg-surface-container-high w-full">
+<button class="flex-1 flex items-center justify-center gap-space-xs min-h-[44px] py-space-xs px-space-md rounded-lg bg-surface text-on-surface shadow-sm font-label-md text-label-md transition-all" id="filter-needs-me">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>Needs me (2)</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-space-xs min-h-[44px] py-space-xs px-space-md rounded-lg text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" id="filter-all">
+<span>All (8)</span>
+</button>
+</div>
+<!-- Quick Filter / Repo Picker Row -->
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded min-h-[32px] flex-1 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline">account_tree</span>
+<span class="font-code-sm text-code-sm text-on-surface truncate">acme-corp / core-api</span>
+</div>
+<button aria-label="Filter tickets" class="w-11 h-11 flex items-center justify-center rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Vertical List of Ticket Cards -->
+<div class="flex flex-col gap-space-md w-full">
+<!-- Card 1: PROJ-128 (Awaiting choice, Needs you) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-shadow">
+<!-- Header Row: Checkbox + Key + Status Badge -->
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<label class="w-11 h-11 flex items-center justify-center -ml-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary ticket-checkbox" data-key="PROJ-128" type="checkbox"/>
+</label>
+<span class="font-code-lg text-code-lg font-semibold text-on-surface">PROJ-128</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-code-sm text-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Awaiting choice</span>
+</div>
+</div>
+<!-- Ticket Title -->
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-space-xs line-clamp-2">
+        Implement Stripe tax calculation fallback webhook
+      </h3>
+<!-- Meta row -->
+<p class="font-code-sm text-code-sm text-on-surface-variant mt-1">
+        core-api · updated 18m ago · billing-service
+      </p>
+<!-- Review AC first switch row -->
+<div class="flex flex-col mt-space-md p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Review AC first</span>
+<button aria-checked="true" class="w-11 h-6 bg-secondary-container rounded-full relative p-0.5 flex items-center transition-colors" role="switch" type="button">
+<span class="w-5 h-5 bg-surface rounded-full shadow-sm translate-x-5 transition-transform"></span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+          This will: ask you to review ACs before solutions are proposed
+        </p>
+</div>
+<!-- Action Button -->
+<button class="w-full min-h-[44px] mt-space-md px-space-md py-space-sm rounded-lg bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm flex items-center justify-center gap-space-xs active:scale-[0.98] transition-transform">
+<span>Review & decide</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</article>
+<!-- Card 2: PROJ-142 (Awaiting drift ack, Needs you) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-shadow">
+<!-- Header Row: Checkbox + Key + Status Badge -->
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<label class="w-11 h-11 flex items-center justify-center -ml-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary ticket-checkbox" data-key="PROJ-142" type="checkbox"/>
+</label>
+<span class="font-code-lg text-code-lg font-semibold text-on-surface">PROJ-142</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-code-sm text-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span>Awaiting drift ack</span>
+</div>
+</div>
+<!-- Ticket Title -->
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-space-xs line-clamp-2">
+        Add idempotency keys to webhook consumer transactions
+      </h3>
+<!-- Meta row -->
+<p class="font-code-sm text-code-sm text-on-surface-variant mt-1">
+        core-api · updated 45m ago
+      </p>
+<!-- Review AC first switch row -->
+<div class="flex flex-col mt-space-md p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Review AC first</span>
+<button aria-checked="false" class="w-11 h-6 bg-surface-container-highest rounded-full relative p-0.5 flex items-center transition-colors" role="switch" type="button">
+<span class="w-5 h-5 bg-surface rounded-full shadow-sm translate-x-0 transition-transform"></span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+          This will: ask you to review ACs before solutions are proposed
+        </p>
+</div>
+<!-- Action Button -->
+<button class="w-full min-h-[44px] mt-space-md px-space-md py-space-sm rounded-lg bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm flex items-center justify-center gap-space-xs active:scale-[0.98] transition-transform">
+<span>Review & decide</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</article>
+<!-- Card 3: PROJ-104 (Blocked - Error/Auth issue) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-shadow">
+<!-- Header Row: Checkbox + Key + Status Badge -->
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<label class="w-11 h-11 flex items-center justify-center -ml-2 cursor-pointer">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary ticket-checkbox" data-key="PROJ-104" type="checkbox"/>
+</label>
+<span class="font-code-lg text-code-lg font-semibold text-on-surface">PROJ-104</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[14px]">error</span>
+<span>Blocked · JIRA login expired</span>
+</div>
+</div>
+<!-- Ticket Title -->
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-space-xs line-clamp-2">
+        Kafka dead letter partition rebalance and recovery handler
+      </h3>
+<!-- Meta row -->
+<p class="font-code-sm text-code-sm text-on-surface-variant mt-1">
+        infra-pipeline · 1h ago
+      </p>
+<!-- Action Buttons Row -->
+<div class="grid grid-cols-2 gap-space-sm mt-space-md">
+<button class="min-h-[44px] px-space-md py-space-sm rounded-lg bg-surface-container-high text-on-surface font-headline-sm text-headline-sm flex items-center justify-center gap-1 active:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span>Retry</span>
+</button>
+<button class="min-h-[44px] px-space-md py-space-sm rounded-lg bg-error-container text-on-error-container font-headline-sm text-headline-sm flex items-center justify-center gap-1 active:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">delete_forever</span>
+<span>Abandon</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs text-center">
+        This will: retry the failed step (log in to JIRA in Chrome first) — or abandon the ticket
+      </p>
+</article>
+<!-- Card 4: PROJ-119 (Refining - In progress) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-shadow">
+<!-- Header Row: Checkbox + Key + Status Badge -->
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<label class="w-11 h-11 flex items-center justify-center -ml-2 cursor-pointer">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary ticket-checkbox" data-key="PROJ-119" type="checkbox"/>
+</label>
+<span class="font-code-lg text-code-lg font-semibold text-on-surface">PROJ-119</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-code-sm text-code-sm">
+<svg class="animate-spin h-3 w-3 text-primary" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8v8H4z" fill="currentColor"></path>
+</svg>
+<span>Refining</span>
+</div>
+</div>
+<!-- Ticket Title -->
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-space-xs line-clamp-2">
+        Migrate redis session store cluster to multi-AZ replica
+      </h3>
+<!-- Meta row -->
+<p class="font-code-sm text-code-sm text-on-surface-variant mt-1">
+        core-api · agent active 4m ago
+      </p>
+<!-- Active Agent telemetry state -->
+<div class="flex items-start gap-space-xs mt-space-md p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary flex-shrink-0 mt-0.5">smart_toy</span>
+<span class="font-body-sm text-body-sm">Analyzing requirements and drafting test fixtures</span>
+</div>
+</article>
+<!-- Card 5: PROJ-135 (PR opened) -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-shadow">
+<!-- Header Row: Checkbox + Key + Status Badge -->
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<label class="w-11 h-11 flex items-center justify-center -ml-2 cursor-pointer">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary ticket-checkbox" data-key="PROJ-135" type="checkbox"/>
+</label>
+<span class="font-code-lg text-code-lg font-semibold text-on-surface">PROJ-135</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>PR opened</span>
+</div>
+</div>
+<!-- Ticket Title -->
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-space-xs line-clamp-2">
+        Add Datadog distributed tracing span decorators
+      </h3>
+<!-- Meta row -->
+<p class="font-code-sm text-code-sm text-on-surface-variant mt-1">
+        core-api · PR #842 · merged pending review
+      </p>
+<!-- PR Link Pill -->
+<div class="mt-space-md flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">commit</span>
+<span class="font-code-sm text-code-sm text-on-surface">github.com/acme/core-api/pull/842</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline">open_in_new</span>
+</div>
+</article>
+</div>
+<!-- Sticky Bottom Bulk Action Bar -->
+<div class="fixed inset-x-3 bottom-20 z-40 bg-inverse-surface text-inverse-on-surface rounded-xl p-space-sm shadow-xl flex flex-col gap-space-xs" id="sticky-bar">
+<div class="flex items-center justify-between pl-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-code-sm text-code-sm bg-primary px-2 py-0.5 rounded text-on-primary" id="selected-counter">2 selected</span>
+<button class="text-inverse-on-surface underline underline-offset-2 hover:text-inverse-primary text-label-sm font-label-sm min-h-[44px] px-2 flex items-center" id="deselect-all">
+          Deselect all
+        </button>
+</div>
+<button class="min-h-[44px] px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Start refining (2)</span>
+</button>
+</div>
+<div class="px-space-xs text-outline-variant font-body-sm text-body-sm border-t border-inverse-surface/40 pt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span>This will: start the refine agent (read-only on JIRA)</span>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic count updates & sticky bar interaction
+  const checkboxes = document.querySelectorAll('.ticket-checkbox');
+  const stickyBar = document.getElementById('sticky-bar');
+  const selectedCounter = document.getElementById('selected-counter');
+  const deselectBtn = document.getElementById('deselect-all');
+
+  function updateSelected() {
+    const checked = Array.from(checkboxes).filter(cb => cb.checked);
+    const count = checked.length;
+    if (count > 0) {
+      stickyBar.style.display = 'flex';
+      selectedCounter.textContent = `${count} selected`;
+      const runBtn = stickyBar.querySelector('button.bg-primary-container span:last-child');
+      if (runBtn) runBtn.textContent = `Start refining (${count})`;
+    } else {
+      stickyBar.style.display = 'none';
+    }
+  }
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', updateSelected);
+  });
+
+  deselectBtn?.addEventListener('click', () => {
+    checkboxes.forEach(cb => cb.checked = false);
+    updateSelected();
+  });
+
+  // Filter pills toggle
+  const filterNeedsMe = document.getElementById('filter-needs-me');
+  const filterAll = document.getElementById('filter-all');
+
+  filterNeedsMe?.addEventListener('click', () => {
+    filterNeedsMe.className = "flex-1 flex items-center justify-center gap-space-xs min-h-[44px] py-space-xs px-space-md rounded-lg bg-surface text-on-surface shadow-sm font-label-md text-label-md transition-all";
+    filterAll.className = "flex-1 flex items-center justify-center gap-space-xs min-h-[44px] py-space-xs px-space-md rounded-lg text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all";
+  });
+
+  filterAll?.addEventListener('click', () => {
+    filterAll.className = "flex-1 flex items-center justify-center gap-space-xs min-h-[44px] py-space-xs px-space-md rounded-lg bg-surface text-on-surface shadow-sm font-label-md text-label-md transition-all";
+    filterNeedsMe.className = "flex-1 flex items-center justify-center gap-space-xs min-h-[44px] py-space-xs px-space-md rounded-lg text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all";
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface border-t border-outline-variant shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-label-md"><div class="flex justify-around items-center h-16 px-space-sm"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] gap-space-xs transition-colors text-primary font-label-md" data-path="tickets" href="#"><span class="material-symbols-outlined text-[20px]">inbox</span><span class="font-label-sm text-label-sm">Tickets</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-sm text-label-sm">Settings</span></a></div></nav></body></html>

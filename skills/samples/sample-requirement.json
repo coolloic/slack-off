@@ -1,0 +1,33 @@
+{
+  "background": "Managers download the weekly orders report as CSV to open it in a spreadsheet.",
+  "functional": [
+    { "id": "F1", "text": "A Download CSV button next to the weekly report table downloads the report as a CSV file." }
+  ],
+  "acceptanceCriteria": [
+    {
+      "id": "AC-1",
+      "text": "Clicking Download CSV downloads a file named weekly-report-YYYY-MM-DD.csv (the day of the download).",
+      "verifiable": true,
+      "source": { "type": "comment", "ref": "10001", "quote": "name the file weekly-report-<date>.csv" }
+    },
+    {
+      "id": "AC-2",
+      "text": "The file has a header row with the table's column titles (Week, Orders, Revenue) and one row per week, comma separated, text fields quoted.",
+      "verifiable": true,
+      "source": { "type": "comment", "ref": "10003", "quote": "use a comma as the separator and quote text fields" }
+    },
+    {
+      "id": "AC-3",
+      "text": "Revenue is written with two decimals.",
+      "verifiable": true,
+      "source": { "type": "description", "ref": "description", "quote": "Revenue is shown with two decimals." }
+    }
+  ],
+  "discussionOutcomes": [
+    { "id": "D-1", "text": "The separator is a comma and text fields are quoted.", "sourceCommentIds": ["10003"] }
+  ],
+  "openQuestions": [
+    { "kind": "conflict", "text": "The description asks for the last 12 weeks; a comment asks for 26 weeks." }
+  ],
+  "draftComment": null
+}

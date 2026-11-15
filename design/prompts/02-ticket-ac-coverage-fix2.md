@@ -1,0 +1,1 @@
+Edit the "Ticket detail – AC coverage" screen only: (1) In the header replace "Agent: arch-planner (paused)" with "Waiting for you · AC review" (orange dot). (2) In the AC-7 row replace "No traceable origin in JIRA or Slack" with "No traceable origin in the JIRA snapshot". Change nothing else.

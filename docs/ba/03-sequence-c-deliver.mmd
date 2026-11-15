@@ -1,0 +1,66 @@
+sequenceDiagram
+  autonumber
+  actor Dev as 开发者
+  participant S as 平台 Server
+  participant G as Git worktree
+  participant JIRA as JIRA Cloud（经 Chrome）
+  participant I as claude CLI<br/>(skill: implement-ticket)
+  participant A as claude CLI<br/>(skill: acceptance-review)<br/>独立配置目录
+  participant SB as sandbox-exec<br/>(playwright shim + 目标应用)
+  participant GH as GitHub（gh）
+
+  S->>G: 建 worktree + 分支 slackoff/KEY-slug
+  opt jira.syncStatus 开启（可选、经确认）
+    Dev->>S: 确认 Send to JIRA
+    S->>JIRA: 状态 → In Progress（jira-update，审计）
+  end
+  S->>I: 需求 + 定稿设计 + 规则文件
+  I->>G: 代码 + 测试 + 小步 commit
+  I-->>S: 开发完成 → dev_done
+  S-->>Dev: 拍板点 2：交给验收？
+  Dev->>S: 交给验收（新一轮 review_series）
+  S->>JIRA: 复读快照（只读）
+  alt 快照变化且偏移需要已知晓
+    S-->>Dev: awaiting_review_ack
+    Dev->>S: 已知晓并填写说明 → reviewing（或从需求重新规划 → refining）
+  end
+  S->>S: git archive 导出无历史快照（按内容排除设计 / 辩论原文）
+  loop 失败时自动修复，每轮最多 review.maxAttempts 次（默认 3）
+    S->>SB: 自检（连 4317 / 5173、读 slackoff.db 必须 EPERM）+ 启动目标应用
+    alt 自检失败 / 无 acceptance 段 / 端口已占用 / 健康检查超时
+      S-->>S: not_executed（不调用验收 agent）
+    else
+      S->>A: 只给锁定需求的 background / functional / AC / discussionOutcomes
+      A->>SB: playwright test（用例、浏览器、目标应用都在沙箱内）
+      A-->>S: 逐条 AC 判定 + 证据
+      S->>SB: 平台重跑用例，核对判定
+      alt 有失败
+        S->>I: 失败条目 + 证据（review_failed 迭代）
+        I->>G: 修复 commit
+        I-->>S: developing → reviewing
+      end
+    end
+  end
+  S-->>Dev: 拍板点 3：验收报告 + 截图（awaiting_confirmation）
+  alt 确认并交付
+    Dev->>S: 查看预览（逐条动作 + PR 描述全文 + 计划哈希）
+    Dev->>S: 确认（计划变了 → 409，需重新查看）→ delivering
+    S->>JIRA: 复读快照（只读）+ 偏移检查
+    alt 偏移需要已知晓
+      S-->>Dev: → awaiting_confirmation（重新查看后再确认）
+    else
+      S->>GH: push -u（无 --force，pre-push hook 照常）
+      S->>GH: gh pr create --body-file（需求 / 方案 / 报告摘要；证据在 Slack Off 中，不含截图）
+      S->>GH: 多仓库时编辑描述互相引用
+      S->>S: → pr_opened（所有 PR 已开）
+      opt jira.syncStatus 开启（可选、经确认，列在确认框中）
+        S->>JIRA: 状态 → Ready for Human Review（jira-update）
+        S->>JIRA: 评论 PR 链接（jira-comment，只在该票页面逐字输入）
+        Note over S,JIRA: 失败只记录、可单独重试，不改平台状态
+      end
+    end
+  else 驳回并附意见
+    Dev->>S: 驳回 → developing（修复后直接回到验收，新一轮）
+  else 重新验收并附意见
+    Dev->>S: 重新验收 → reviewing（计入当前轮上限）
+  end

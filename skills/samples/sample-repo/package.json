@@ -1,0 +1,10 @@
+{
+  "name": "sample-weekly-report",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Fictional sample project for Slack Off trial runs.",
+  "scripts": {
+    "test": "node --test test/"
+  }
+}

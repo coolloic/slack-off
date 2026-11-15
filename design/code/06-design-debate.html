@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}@keyframes pulse-subtle{0%,100%{opacity:1}50%{opacity:0.35}}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-container-high":"#e2e7ff","secondary":"#904d00","on-error-container":"#93000a","on-surface-variant":"#434655","tertiary-fixed":"#85f8c4","primary-container":"#2563eb","background":"#faf8ff","inverse-primary":"#b4c5ff","error-container":"#ffdad6","primary-fixed":"#dbe1ff","tertiary-container":"#007d57","inverse-surface":"#283044","primary-fixed-dim":"#b4c5ff","on-background":"#131b2e","surface-bright":"#faf8ff","on-tertiary-fixed-variant":"#005137","surface-container-highest":"#dae2fd","surface-container-lowest":"#ffffff","surface-container":"#eaedff","on-tertiary-fixed":"#002114","on-primary-fixed":"#00174b","surface-dim":"#d2d9f4","on-primary-container":"#eeefff","on-error":"#ffffff","on-secondary-fixed-variant":"#6e3900","error":"#ba1a1a","outline":"#737686","surface-tint":"#0053db","tertiary":"#006243","on-secondary-fixed":"#2f1500","on-secondary-container":"#663500","on-tertiary-container":"#bdffdc","secondary-container":"#fe932c","on-surface":"#131b2e","secondary-fixed":"#ffdcc3","on-primary":"#ffffff","inverse-on-surface":"#eef0ff","surface-variant":"#dae2fd","outline-variant":"#c3c6d7","secondary-fixed-dim":"#ffb77d","tertiary-fixed-dim":"#68dba9","on-secondary":"#ffffff","on-tertiary":"#ffffff","on-primary-fixed-variant":"#003ea8","surface-container-low":"#f2f3ff","primary":"#004ac6","surface":"#faf8ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","space-md":"0.5rem","space-xl":"1rem","gutter":"0.75rem","space-sm":"0.375rem","space-lg":"0.75rem","margin":"1rem"},"fontFamily":{"label-md":["Inter"],"code-lg":["JetBrains Mono"],"body-md":["Inter"],"label-sm":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"],"body-sm":["Inter"],"headline-lg":["Inter"],"kbd":["JetBrains Mono"],"code-sm":["JetBrains Mono"],"code-md":["JetBrains Mono"]},"fontSize":{"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"code-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["14px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"kbd":["10px",{"lineHeight":"12px","fontWeight":"500"}],"code-sm":["11px",{"lineHeight":"14px","fontWeight":"400"}],"code-md":["12px",{"lineHeight":"16px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col justify-between z-50 select-none"><div class="flex flex-col"><div class="h-12 px-space-xl border-b border-outline-variant/30 flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary text-[18px]">terminal</span><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Slack Off</span></div><span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container border border-outline-variant/40 px-1.5 py-0.5 rounded">:4317</span></div><nav class="flex flex-col py-space-sm px-space-sm gap-0.5" data-active-classes="bg-surface-container-high text-on-surface font-headline-sm"><a class="flex items-center h-8 px-space-md rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors" data-path="tickets" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">task_alt</span><span class="">Tickets</span></div><span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-semibold">14</span></a><a class="flex items-center h-8 px-space-md rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors" data-path="audit-log" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">history</span><span class="">Audit log</span></div></a><a class="flex items-center h-8 px-space-md rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors" data-path="cost-and-quota" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">donut_large</span><span class="">Cost &amp; quota</span></div></a><a class="flex items-center h-8 px-space-md rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors" data-path="settings" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">settings</span><span class="">Settings</span></div></a></nav></div><div class="p-space-md border-t border-outline-variant/30 flex flex-col gap-space-xs bg-surface-container-low"><div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant"><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span class="">Daemon v0.9.4</span></div><span class="font-code-sm text-code-sm text-tertiary">active</span></div><div class="flex items-center justify-between font-label-sm text-label-sm pt-space-xs text-on-surface-variant"><span class="text-[11px]">Command bar</span><kbd class="font-kbd text-kbd px-1 py-0.5 rounded bg-surface-container-highest border border-outline-variant/50 text-on-surface-variant">⌘K</kbd></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-12 bg-surface-container-lowest border-b border-outline-variant/30 z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-sm"><button class="flex items-center gap-space-sm h-7 px-space-sm rounded bg-surface-container-low border border-outline-variant/30 hover:bg-surface-container hover:text-on-surface text-on-surface font-code-sm text-code-sm" type="button"><span class="material-symbols-outlined text-on-surface-variant text-[16px]">folder_code</span><span class="font-medium">acme-corp</span><span class="text-outline-variant">/</span><span class="text-on-surface-variant">core-api</span><span class="material-symbols-outlined text-outline text-[16px]">expand_more</span></button></div><div class="flex items-center gap-space-sm"><div class="relative group"><button class="flex items-center gap-1.5 h-7 px-space-md rounded bg-secondary-fixed text-on-secondary-fixed font-code-sm text-code-sm border border-secondary-container/40" type="button"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-[pulse-subtle_1.5s_ease-in-out_infinite]"></span><span class="font-semibold">Needs you</span><span class="px-1 rounded bg-surface-container-lowest/80 text-secondary font-bold text-[10px]">3</span><span class="material-symbols-outlined text-[14px]">arrow_drop_down</span></button><div class="hidden group-hover:block group-focus-within:block absolute right-0 top-full mt-1 w-64 bg-surface-container-lowest border border-outline-variant/40 rounded shadow-sm z-50 p-space-xs"><div class="px-space-sm py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider border-b border-outline-variant/20">Awaiting Decision</div><div class="flex flex-col py-1"><a class="flex items-center justify-between px-space-sm py-1.5 hover:bg-surface-container-low rounded text-on-surface text-left" data-path="tickets" href="#"><span class="font-code-sm text-code-sm font-semibold text-primary">PROJ-128</span><span class="font-label-sm text-label-sm text-on-surface-variant">14m ago</span></a><a class="flex items-center justify-between px-space-sm py-1.5 hover:bg-surface-container-low rounded text-on-surface text-left" data-path="tickets" href="#"><span class="font-code-sm text-code-sm font-semibold text-primary">PROJ-142</span><span class="font-label-sm text-label-sm text-on-surface-variant">22m ago</span></a></div></div></div><div class="flex items-center gap-1.5 h-7 px-space-md rounded bg-surface-container border border-outline-variant/30 font-code-sm text-code-sm text-on-surface"><span class="text-on-surface-variant font-label-sm">Agents</span><span class="font-semibold text-primary">1/1</span></div><div class="flex items-center gap-1.5 h-7 px-space-md rounded bg-surface-container-low border border-outline-variant/30 font-code-sm text-code-sm text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span class="">Claude Code</span><span class="text-outline-variant">·</span><span class="text-tertiary font-medium">ready</span></div><div class="flex items-center gap-1.5 h-7 px-space-md rounded bg-surface-container-low border border-outline-variant/30 font-code-sm text-code-sm text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span class="">JIRA Chrome</span><span class="text-outline-variant">·</span><span class="text-tertiary font-medium">connected</span></div><div class="h-4 w-px bg-outline-variant/30 mx-0.5"></div><button class="flex items-center justify-center w-7 h-7 rounded border border-outline-variant/30 bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Toggle output terminal drawer" type="button"><span class="material-symbols-outlined text-[16px]">dock_to_bottom</span></button><div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center ml-1"><span class="material-symbols-outlined text-on-primary text-[16px]">person</span></div></div></header><main class="w-full pt-12 min-h-screen bg-surface-container-lowest"><div class="flex flex-col w-full text-on-surface">
+<!-- 1. Header & Context Stepper -->
+<section class="bg-surface-container-lowest px-space-xl py-space-md shadow-sm">
+<!-- Breadcrumbs & Meta Topline -->
+<div class="flex flex-wrap items-center justify-between gap-y-space-xs text-body-sm">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm">
+<span class="flex items-center gap-1 hover:text-on-surface cursor-pointer">
+<span>All tickets</span>
+<kbd class="font-kbd text-kbd px-1 py-0.5 rounded bg-surface-container border border-outline-variant/40 text-on-surface-variant">Esc</kbd>
+</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-on-surface cursor-pointer">Tickets</span>
+<span class="text-outline-variant">/</span>
+<span class="font-semibold text-primary">PROJ-128</span>
+</div>
+<div class="flex items-center gap-space-md text-label-sm text-on-surface-variant font-mono">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-low border border-outline-variant/30">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>JIRA read-only (except status transition) · snapshot v2 (2h ago)</span>
+</div>
+<a class="flex items-center gap-1 text-primary hover:underline font-label-sm" href="#">
+<span>Open in JIRA</span>
+<span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Ticket Title & Main Status Line -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mt-space-sm">
+<div class="flex flex-wrap items-center gap-space-md">
+<span class="font-code-lg text-code-lg font-semibold text-on-surface tracking-tight">PROJ-128</span>
+<h1 class="font-headline-md text-headline-md text-on-surface">Implement Stripe tax calculation fallback webhook</h1>
+<!-- Pulsing Amber Ruling Badge -->
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-code-sm text-code-sm font-semibold border border-secondary-container/40">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-[pulse-subtle_1.2s_ease-in-out_infinite]"></span>
+          Awaiting ruling
+        </span>
+</div>
+<div class="flex items-center gap-space-sm text-label-sm font-code-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface border border-outline-variant/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-on-surface-variant">fork_right</span>
+          slackoff/PROJ-128-stripe-tax-fallback
+        </span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant border border-outline-variant/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">database</span>
+          billing-service
+        </span>
+</div>
+</div>
+<!-- Telemetry Subline -->
+<div class="flex items-center gap-space-md mt-space-xs text-body-sm text-on-surface-variant font-code-sm">
+<div class="flex items-center gap-1.5 text-secondary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Waiting for you · Ruling required</span>
+</div>
+<span class="text-outline-variant">|</span>
+<span>Created 2h ago</span>
+<span class="text-outline-variant">·</span>
+<span>Run: <span class="text-on-surface">#4491-tax-fb</span></span>
+<span class="text-outline-variant">·</span>
+<span>Local Agent: <span class="text-tertiary font-medium">Claude Code (active)</span></span>
+</div>
+<!-- Stepper Pipeline -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant/30 overflow-x-auto">
+<div class="flex items-center gap-1 text-label-sm whitespace-nowrap min-w-max py-0.5">
+<div class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>Discovered</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">chevron_right</span>
+<div class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>Refining</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">chevron_right</span>
+<div class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>Refined</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">chevron_right</span>
+<div class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>AC review</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">chevron_right</span>
+<div class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>Proposing</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">chevron_right</span>
+<div class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>Choice</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">chevron_right</span>
+<!-- Active Step -->
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold border border-secondary-container/50">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-[pulse-subtle_1.5s_infinite]"></span>
+<span>Design (current)</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">chevron_right</span>
+<div class="flex items-center gap-1 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[15px]">radio_button_unchecked</span>
+<span>Develop</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">chevron_right</span>
+<div class="flex items-center gap-1 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[15px]">radio_button_unchecked</span>
+<span>Review</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">chevron_right</span>
+<div class="flex items-center gap-1 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[15px]">radio_button_unchecked</span>
+<span>PR</span>
+</div>
+</div>
+</div>
+<!-- Sub-navigation Tabs -->
+<div class="flex items-center justify-between mt-space-md border-b border-outline-variant/30 text-body-sm font-label-md">
+<div class="flex items-center gap-1 overflow-x-auto">
+<a class="px-space-md py-2 text-on-surface-variant hover:text-on-surface border-b-2 border-transparent" href="#">Original snapshot</a>
+<a class="px-space-md py-2 text-on-surface-variant hover:text-on-surface border-b-2 border-transparent" href="#">Requirements &amp; AC</a>
+<a class="px-space-md py-2 text-on-surface-variant hover:text-on-surface border-b-2 border-transparent flex items-center gap-1.5" href="#">
+<span>AC coverage</span>
+<span class="text-tertiary bg-tertiary-container/10 px-1 py-0.2 rounded font-code-sm text-[10px] flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">check</span> acknowledged
+          </span>
+</a>
+<a class="px-space-md py-2 text-on-surface-variant hover:text-on-surface border-b-2 border-transparent" href="#">Solutions</a>
+<!-- ACTIVE TAB -->
+<a class="px-space-md py-2 text-primary font-semibold border-b-2 border-primary bg-surface-container-low/50" href="#">
+          Design &amp; debate
+        </a>
+<a class="px-space-md py-2 text-on-surface-variant hover:text-on-surface border-b-2 border-transparent" href="#">Development</a>
+<a class="px-space-md py-2 text-on-surface-variant hover:text-on-surface border-b-2 border-transparent" href="#">Acceptance</a>
+<a class="px-space-md py-2 text-on-surface-variant hover:text-on-surface border-b-2 border-transparent" href="#">Audit</a>
+</div>
+<div class="flex items-center gap-space-md font-code-sm text-code-sm text-on-surface-variant hidden lg:flex">
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/40">diff mode: v2 current</span>
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          Executor: <span class="font-medium text-primary">Claude Code (subscription)</span>
+</span>
+</div>
+</div>
+</section>
+<!-- 2. Debate Round Status & Context Bar -->
+<section class="bg-surface-container-low border-b border-outline-variant/30 px-space-xl py-space-xs flex flex-wrap items-center justify-between gap-space-sm text-body-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest border border-outline-variant/40 text-on-surface font-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<span class="font-semibold">Design doc v3</span>
+<span class="text-on-surface-variant">· after round 3</span>
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant ml-1">expand_more</span>
+</div>
+<a class="font-code-sm text-code-sm text-primary hover:underline flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">compare_arrows</span>
+        Diff v2 ↔ v3 (14 lines changed)
+      </a>
+<span class="text-outline-variant hidden sm:inline">|</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant hidden md:inline truncate max-w-md">
+<span class="text-on-surface font-medium">Selected in Choice:</span> Solution B (Async reconciliation queue with idempotency keys)
+      </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex flex-col items-end text-right">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-code-sm text-code-sm font-semibold border border-secondary-container/40">
+            Debate round 3 of 3 · limit reached
+          </span>
+</div>
+<span class="font-label-sm text-[10px] text-secondary font-medium tracking-tight mt-0.5">
+          Automated debate rounds concluded · human architect intervention required
+        </span>
+</div>
+</div>
+</section>
+<!-- 3. Main 2-Column Split: Markdown Preview (60%) & Quality Checklist (40%) -->
+<section class="p-space-xl bg-surface grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT 60% (7 cols on 12-col grid): Rendered Design Document -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant/40 rounded-lg shadow-sm overflow-hidden">
+<!-- Doc Header Bar -->
+<div class="bg-surface-container-low px-space-lg py-2 border-b border-outline-variant/30 flex items-center justify-between text-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">article</span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">RFC-128.md</span>
+<span class="font-label-sm text-[11px] text-tertiary bg-tertiary-container/15 px-1.5 py-0.2 rounded font-mono">v3-final-candidate</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span>Words: 1,420</span>
+<span class="text-outline-variant">·</span>
+<span>Tokens: ~4.2k</span>
+</div>
+</div>
+<!-- Markdown Body -->
+<div class="p-space-xl space-y-space-lg font-body-md text-body-md leading-relaxed text-on-surface select-text">
+<div>
+<div class="font-code-sm text-code-sm text-primary uppercase tracking-wider font-semibold">Technical Architecture Design</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">RFC-128: Asynchronous Webhook Reconciliation Queue for Stripe Tax Fallback</h2>
+<div class="flex items-center gap-space-md text-label-sm text-on-surface-variant mt-2 pb-space-sm border-b border-outline-variant/20 font-mono">
+<span>Author: Claude-Architect</span>
+<span>·</span>
+<span>Target: billing-service</span>
+<span>·</span>
+<span>Impact: Checkout P0 Path</span>
+</div>
+</div>
+<!-- Section 1 -->
+<section class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5 font-semibold">
+<span class="text-primary font-mono">1.</span> Overview &amp; Rationale
+          </h3>
+<p class="text-on-surface-variant">
+            During heavy transaction surges, upstream Stripe Tax calculation RPCs periodically breach our standard <code class="font-code-sm text-code-sm bg-surface-container px-1 rounded text-on-surface">200ms</code> checkout latency budget. To prevent hard cart abandonment, the <code class="font-code-sm text-code-sm bg-surface-container px-1 rounded text-on-surface">billing-service</code> intercepts breaches, applies a bounded local heuristic fallback calculation, and responds with <code class="font-code-sm text-code-sm bg-surface-container px-1 rounded text-on-surface font-semibold text-primary">HTTP 202 Accepted</code> immediately to unblock customer checkout.
+          </p>
+</section>
+<!-- Section 2 -->
+<section class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5 font-semibold">
+<span class="text-primary font-mono">2.</span> Data Flow &amp; Queue Topology
+          </h3>
+<p class="text-on-surface-variant">
+            The fallback path offloads accurate settlement calculation to an asynchronous worker queue:
+          </p>
+<div class="bg-surface-container-low border border-outline-variant/30 rounded p-space-md font-code-sm text-code-sm space-y-1">
+<div class="text-on-surface"><span class="text-tertiary">Checkout Client</span> → POST /v1/checkout/tax-quote</div>
+<div class="text-on-surface-variant pl-4">↳ Stripe timeout breached (&gt;200ms threshold)</div>
+<div class="text-on-surface pl-4">↳ <span class="font-semibold text-primary">Postgres Advisory Lock</span> acquired on order key</div>
+<div class="text-on-surface pl-4">↳ Dispatch message to SQS Topic: <span class="text-on-surface font-semibold underline">billing-tax-reconcile-p1</span></div>
+<div class="text-on-surface pl-4">↳ Return HTTP 202 with synthetic tracking metadata</div>
+<div class="text-on-surface"><span class="text-secondary">Background Worker</span> ← Consumes SQS topic → Runs async Stripe Tax reconcile</div>
+</div>
+</section>
+<!-- Section 3 -->
+<section class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5 font-semibold">
+<span class="text-primary font-mono">3.</span> Idempotency &amp; Concurrency Control
+          </h3>
+<p class="text-on-surface-variant">
+            To prevent double deductions and out-of-order race conditions when both the delayed Stripe response and the async reconcile event arrive concurrently:
+          </p>
+<ul class="list-disc pl-5 text-on-surface-variant space-y-1">
+<li>Generate deterministic transaction token: <code class="font-code-sm text-code-sm bg-surface-container px-1 rounded text-on-surface">tax_tx_{order_id}_{attempt}</code>.</li>
+<li>Protect database mutate operations using transient Postgres transaction advisory locks: <code class="font-code-sm text-code-sm bg-surface-container px-1 rounded text-on-surface">pg_try_advisory_xact_lock(hashtext(order_id))</code>.</li>
+<li>Maintain an immutable journal of reconciliation state transitions in <code class="font-code-sm text-code-sm bg-surface-container px-1 rounded text-on-surface">billing_reconciliation_audit</code>.</li>
+</ul>
+</section>
+<!-- Section 4 -->
+<section class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5 font-semibold">
+<span class="text-primary font-mono">4.</span> Code &amp; Implementation Baseline
+          </h3>
+<div class="rounded border border-outline-variant/30 overflow-hidden bg-surface-container-low">
+<div class="bg-surface-container px-space-md py-1 font-code-sm text-code-sm text-on-surface-variant border-b border-outline-variant/30 flex justify-between">
+<span>src/handlers/tax-fallback.ts</span>
+<span>TypeScript 5.4</span>
+</div>
+<pre class="p-space-md font-code-sm text-code-sm text-on-surface overflow-x-auto leading-5 select-text"><code><span class="text-outline">// Fallback webhook ingestion &amp; async dispatch</span>
+<span class="text-primary font-semibold">export async function</span> <span class="font-semibold">handleTaxFallback</span>(req: <span class="text-tertiary">Request</span>, res: <span class="text-tertiary">Response</span>) {
+  <span class="text-primary font-semibold">const</span> { orderId, currency, subtotalCents, address } = req.body;
+  <span class="text-primary font-semibold">const</span> syntheticTag = <span class="text-secondary">`synthetic_fallback_${Date.now()}`</span>;
+  
+  <span class="text-primary font-semibold">await</span> queue.<span class="text-primary">publish</span>(<span class="text-secondary">"billing-tax-reconcile-p1"</span>, {
+    orderId,
+    syntheticTag,
+    retryPolicy: { maxBackoffMs: <span class="text-tertiary">5000</span> }
+  });
+
+  <span class="text-primary font-semibold">return</span> res.<span class="text-primary">status</span>(<span class="text-tertiary">202</span>).<span class="text-primary">json</span>({
+    status: <span class="text-secondary">"accepted"</span>,
+    tag: syntheticTag
+  });
+}</code></pre>
+</div>
+</section>
+<!-- Section 5 -->
+<section class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5 font-semibold">
+<span class="text-primary font-mono">5.</span> Error Handling &amp; Dead-Letter Policy
+          </h3>
+<p class="text-on-surface-variant">
+            Failed reconciliation consumer runs execute exponential backoff (initial <code class="font-code-sm text-code-sm bg-surface-container px-1 rounded text-on-surface">500ms</code>, max multiplier <code class="font-code-sm text-code-sm bg-surface-container px-1 rounded text-on-surface">5000ms</code>) capped at 3 discrete attempts. Exhausted executions transfer directly to Dead-Letter Queue:
+          </p>
+<div class="px-space-md py-1.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface border border-outline-variant/30 flex items-center justify-between">
+<span class="truncate">arn:aws:sqs:us-east-1:182930491823:billing-tax-dlq</span>
+<span class="text-error font-medium text-[11px] shrink-0">Retention: 14d</span>
+</div>
+</section>
+<!-- Section 6 -->
+<section class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5 font-semibold">
+<span class="text-primary font-mono">6.</span> Observability &amp; Telemetry
+          </h3>
+<p class="text-on-surface-variant">
+            Datadog telemetry dimensions emitted on ingress:
+          </p>
+<div class="grid grid-cols-2 gap-space-sm font-code-sm text-code-sm">
+<div class="p-space-sm rounded bg-surface-container-low border border-outline-variant/20">
+<span class="text-on-surface font-medium">tax.fallback.invoked:</span> <span class="text-tertiary">count</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low border border-outline-variant/20">
+<span class="text-on-surface font-medium">reason:</span> <span class="text-secondary">timeout_exceeded</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- RIGHT 40% (5 cols on 12-col grid): Quality Checklist Panel -->
+<div class="lg:col-span-5 bg-surface-container-lowest border border-outline-variant/40 rounded-lg shadow-sm overflow-hidden flex flex-col">
+<!-- Checklist Header -->
+<div class="bg-surface-container-low px-space-lg py-space-sm border-b border-outline-variant/30">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">fact_check</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Quality checklist</h2>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">20/22 Pass</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">
+          Evaluated against agent debate guidelines · 2 items disputed
+        </div>
+</div>
+<!-- Checklist Categories Container -->
+<div class="p-space-md space-y-space-md max-h-[780px] overflow-y-auto">
+<!-- Category 1: Non-functional -->
+<div class="border border-outline-variant/30 rounded overflow-hidden">
+<div class="bg-surface-container-low px-space-md py-1 border-b border-outline-variant/20 flex items-center justify-between text-label-md font-semibold text-on-surface">
+<span>Non-functional (10 items)</span>
+<span class="text-error font-code-sm text-code-sm font-medium">1 Disputed</span>
+</div>
+<div class="divide-y divide-outline-variant/20 text-body-sm font-label-md">
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Readability</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Maintainability</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">1 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Extensibility</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Observability</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">2 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Security</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Reusability</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-code-sm text-[10px]">N/A (monolith-internal)</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Performance</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">1 com.</span>
+</div>
+</div>
+<!-- Disputed Row -->
+<div class="px-space-md py-1.5 flex items-center justify-between bg-error-container/20">
+<span class="font-semibold text-error">Reliability</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-error text-on-error font-code-sm text-[10px] font-semibold">Disputed</span>
+<span class="text-error font-code-sm text-code-sm font-semibold text-[11px]">3 critic comments</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Compatibility</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Testability</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">1 com.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Category 2: Principles -->
+<div class="border border-outline-variant/30 rounded overflow-hidden">
+<div class="bg-surface-container-low px-space-md py-1 border-b border-outline-variant/20 flex items-center justify-between text-label-md font-semibold text-on-surface">
+<span>Principles (6 items)</span>
+<span class="text-error font-code-sm text-code-sm font-medium">1 Disputed</span>
+</div>
+<div class="divide-y divide-outline-variant/20 text-body-sm font-label-md">
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>SOLID</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>DRY</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>KISS</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<!-- Disputed Row -->
+<div class="px-space-md py-1.5 flex items-center justify-between bg-error-container/20">
+<span class="font-semibold text-error">YAGNI</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-error text-on-error font-code-sm text-[10px] font-semibold">Disputed</span>
+<span class="text-error font-code-sm text-code-sm font-semibold text-[11px]">2 critic comments</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Separation of concerns</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Fits existing architecture</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">1 com.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Category 3: Edge cases -->
+<div class="border border-outline-variant/30 rounded overflow-hidden">
+<div class="bg-surface-container-low px-space-md py-1 border-b border-outline-variant/20 flex items-center justify-between text-label-md font-semibold text-on-surface">
+<span>Edge cases (6 items)</span>
+<span class="text-tertiary font-code-sm text-code-sm font-medium">All Addressed</span>
+</div>
+<div class="divide-y divide-outline-variant/20 text-body-sm font-label-md">
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Nulls &amp; missing fields</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Extremes &amp; high concurrency</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">1 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Concurrency / race conditions</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">2 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Timeouts (&gt;200ms breach)</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">0 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Retries &amp; backoff</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">1 com.</span>
+</div>
+</div>
+<div class="px-space-md py-1.5 flex items-center justify-between hover:bg-surface-container-low">
+<span>Partial failure</span>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/15 text-tertiary font-code-sm text-[10px]">Addressed</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm text-[11px]">2 com.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Debate Timeline (3 rounds accordion) -->
+<section class="px-space-xl pb-space-lg">
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-lg shadow-sm overflow-hidden">
+<!-- Section Header -->
+<div class="bg-surface-container-low px-space-lg py-2.5 border-b border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">forum</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Debate timeline (3 rounds)</h2>
+<span class="font-code-sm text-code-sm px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant border border-outline-variant/30">
+            Agents: Architect ↔ Critic
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Limit enforced: max 3 rounds</span>
+</div>
+<div class="divide-y divide-outline-variant/30">
+<!-- Round 1 (Collapsed) -->
+<details class="group cursor-pointer">
+<summary class="flex items-center justify-between px-space-lg py-2 bg-surface-container-lowest hover:bg-surface-container-low select-none transition-colors">
+<div class="flex items-center gap-space-sm font-label-md">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant group-open:rotate-90 transition-transform">chevron_right</span>
+<span class="font-semibold text-on-surface">Round 1 (Completed)</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">· 4 findings: 3 accepted &amp; revised, 1 rebutted</span>
+</div>
+<span class="font-code-sm text-code-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span> Resolved
+            </span>
+</summary>
+<div class="px-space-xl py-space-md bg-surface-container-low/40 border-t border-outline-variant/20 text-body-sm text-on-surface-variant">
+            All primary schema revisions incorporated into doc v2. Topic naming convention unified to <code class="font-code-sm text-code-sm bg-surface-container px-1 rounded">billing-tax-reconcile-p1</code>.
+          </div>
+</details>
+<!-- Round 2 (Collapsed) -->
+<details class="group cursor-pointer">
+<summary class="flex items-center justify-between px-space-lg py-2 bg-surface-container-lowest hover:bg-surface-container-low select-none transition-colors">
+<div class="flex items-center gap-space-sm font-label-md">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant group-open:rotate-90 transition-transform">chevron_right</span>
+<span class="font-semibold text-on-surface">Round 2 (Completed)</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">· 3 findings: 2 accepted &amp; revised, 1 rebutted</span>
+</div>
+<span class="font-code-sm text-code-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span> Resolved
+            </span>
+</summary>
+<div class="px-space-xl py-space-md bg-surface-container-low/40 border-t border-outline-variant/20 text-body-sm text-on-surface-variant">
+            DLQ retention adjusted from 7d to 14d. Exponential backoff jitter algorithm aligned with existing billing service utility classes.
+          </div>
+</details>
+<!-- Round 3 (Expanded by default) -->
+<div class="bg-surface-container-lowest">
+<div class="flex items-center justify-between px-space-lg py-2 bg-surface-container-low border-b border-outline-variant/20">
+<div class="flex items-center gap-space-sm font-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">error</span>
+<span class="font-semibold text-on-surface">Round 3 (Limit reached · 2 open disagreements)</span>
+<span class="font-code-sm text-code-sm text-secondary font-medium">· Escalated to you</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-code-sm text-code-sm font-semibold border border-secondary-container/40">
+              Human Ruling Needed
+            </span>
+</div>
+<!-- Disagreements in Round 3 -->
+<div class="p-space-lg space-y-space-md">
+<!-- Finding 1 -->
+<div class="border border-outline-variant/30 rounded p-space-md bg-surface-container-lowest">
+<div class="flex flex-wrap items-center justify-between gap-2 pb-space-xs border-b border-outline-variant/20">
+<div class="flex items-center gap-space-sm">
+<span class="px-1.5 py-0.2 rounded bg-error-container text-on-error-container font-code-sm text-[10px] font-semibold uppercase">Blocking</span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Finding 3.1: Concurrency Under Spike</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container px-1 rounded">Reliability · Concurrency</span>
+</div>
+<span class="font-code-sm text-code-sm text-error font-medium">Unresolved after 3 exchanges</span>
+</div>
+<div class="mt-space-sm grid grid-cols-1 md:grid-cols-2 gap-space-md text-body-sm">
+<!-- Critic -->
+<div class="p-space-sm rounded bg-surface-container-low border-l-2 border-error">
+<div class="font-label-sm font-semibold text-error flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-[14px]">psychology_alt</span> Critic Agent:
+                  </div>
+<p class="text-on-surface">
+                    "Postgres advisory locks introduce shared resource contention during 10k/sec checkout spikes. Dedicated Redis lock or queue-native deduplication is significantly safer against connection pool starvation."
+                  </p>
+</div>
+<!-- Designer -->
+<div class="p-space-sm rounded bg-surface-container-low border-l-2 border-primary">
+<div class="font-label-sm font-semibold text-primary flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-[14px]">architecture</span> Designer Agent (Rebuttal):
+                  </div>
+<p class="text-on-surface">
+                    "Redis explicitly violates ticket constraint ('Keep Redis out; reuse existing Postgres stack'). Advisory locks are held &lt;5ms per transaction; stress benchmarks show database headroom up to 18k/sec."
+                  </p>
+</div>
+</div>
+</div>
+<!-- Finding 2 -->
+<div class="border border-outline-variant/30 rounded p-space-md bg-surface-container-lowest">
+<div class="flex flex-wrap items-center justify-between gap-2 pb-space-xs border-b border-outline-variant/20">
+<div class="flex items-center gap-space-sm">
+<span class="px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-code-sm text-[10px] font-semibold uppercase">Escalated</span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Finding 3.2: Synthetic Rate Table Versioning</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container px-1 rounded">YAGNI · Scope</span>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-medium">Unresolved after 3 exchanges</span>
+</div>
+<div class="mt-space-sm grid grid-cols-1 md:grid-cols-2 gap-space-md text-body-sm">
+<!-- Critic -->
+<div class="p-space-sm rounded bg-surface-container-low border-l-2 border-error">
+<div class="font-label-sm font-semibold text-error flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-[14px]">psychology_alt</span> Critic Agent:
+                  </div>
+<p class="text-on-surface">
+                    "Synthetic rate calculation table dynamic versioning (<code class="font-code-sm text-code-sm bg-surface-container px-1 rounded">2024-Q3-v1</code>) adds unnecessary abstraction and extra DB lookups if tax rates only change quarterly. Hardcode config."
+                  </p>
+</div>
+<!-- Designer -->
+<div class="p-space-sm rounded bg-surface-container-low border-l-2 border-primary">
+<div class="font-label-sm font-semibold text-primary flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-[14px]">architecture</span> Designer Agent (Rebuttal):
+                  </div>
+<p class="text-on-surface">
+                    "Anna's comment #10441 and FinOps compliance requirement explicitly demand emergency rate mid-quarter adjustments without triggering application redeployments or container restarts."
+                  </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Prominent Decision Panel (Bottom Hero - Instrument Cockpit) -->
+<section class="px-space-xl pb-space-xl">
+<div class="border-2 border-secondary-container bg-surface-container-low rounded-lg shadow-md p-space-lg">
+<!-- Panel Header -->
+<div class="flex flex-wrap items-start justify-between gap-space-md pb-space-md border-b border-outline-variant/30">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary">gavel</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">
+              Your decision needed — 2 unresolved disagreements after 3 rounds
+            </h2>
+</div>
+<p class="text-body-sm text-on-surface-variant mt-1">
+            Debate limit of 3 rounds reached without consensus. Provide rulings for each item to unlock the pipeline and dispatch Claude Code to the development stage.
+          </p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm px-2 py-1 rounded bg-surface-container text-on-surface font-medium border border-outline-variant/30">
+            Rule Mode: Developer ruling (you)
+          </span>
+</div>
+</div>
+<!-- Disagreement Rulings Form -->
+<form class="mt-space-lg space-y-space-lg" onsubmit="event.preventDefault();">
+<!-- Card 1: Item 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded p-space-md space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-code-sm text-[11px] flex items-center justify-center font-bold">1</span>
+              Item 1: Concurrency Control Strategy
+            </h3>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-mono">Reliability / Lock Architecture</span>
+</div>
+<!-- Position comparison mini bar -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm text-body-sm">
+<div class="p-space-sm rounded bg-surface-container-low border border-outline-variant/20">
+<span class="font-label-sm text-error font-semibold uppercase tracking-wider block text-[10px]">Critic Position</span>
+<span class="text-on-surface-variant text-body-sm">Risk of DB pool exhaustion under severe spike. Wants queue-native deduplication.</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low border border-outline-variant/20">
+<span class="font-label-sm text-primary font-semibold uppercase tracking-wider block text-[10px]">Designer Position</span>
+<span class="text-on-surface-variant text-body-sm">Advises staying within Postgres to avoid adding Redis or DynamoDB dependencies per constraints.</span>
+</div>
+</div>
+<!-- Radio Options -->
+<div class="space-y-space-xs font-label-md text-body-sm">
+<label class="flex items-start gap-space-sm p-space-sm rounded border border-primary/30 bg-surface-container-low/50 hover:bg-surface-container-high/40 cursor-pointer">
+<input checked="" class="mt-0.5 text-primary focus:ring-0 cursor-pointer" name="ruling_concurrency" type="radio" value="designer"/>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Side with designer (Keep Postgres advisory locks)</span>
+<span class="text-on-surface-variant text-label-sm">Respects ticket constraint; bounded hold times prevent lock buildup up to 18k RPS.</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded border border-outline-variant/30 hover:bg-surface-container-low cursor-pointer">
+<input class="mt-0.5 text-primary focus:ring-0 cursor-pointer" name="ruling_concurrency" type="radio" value="critic"/>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Side with critic (Adopt queue-native deduplication)</span>
+<span class="text-on-surface-variant text-label-sm">Overrides constraint; adds SQS FIFO deduplication or in-memory lock tier.</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded border border-outline-variant/30 hover:bg-surface-container-low cursor-pointer" onclick="document.getElementById('custom-ruling-1').classList.toggle('hidden');">
+<input class="mt-0.5 text-primary focus:ring-0 cursor-pointer" name="ruling_concurrency" type="radio" value="custom"/>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Write my own custom ruling...</span>
+<span class="text-on-surface-variant text-label-sm">Provide nuanced instruction to agent prompt for Doc v4.</span>
+</div>
+</label>
+<div class="hidden pl-6 pt-1" id="custom-ruling-1">
+<textarea class="w-full text-body-sm font-code-sm bg-surface-container-lowest border border-outline-variant/40 rounded p-2 focus:border-primary focus:outline-none" placeholder="e.g., Use Postgres advisory locks but wrap in short 50ms connection-timeout context..."></textarea>
+</div>
+</div>
+</div>
+<!-- Card 2: Item 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded p-space-md space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-code-sm text-[11px] flex items-center justify-center font-bold">2</span>
+              Item 2: Synthetic Rate Table Versioning Strategy
+            </h3>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-mono">FinOps / Scope Governance</span>
+</div>
+<!-- Position comparison mini bar -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm text-body-sm">
+<div class="p-space-sm rounded bg-surface-container-low border border-outline-variant/20">
+<span class="font-label-sm text-error font-semibold uppercase tracking-wider block text-[10px]">Critic Position</span>
+<span class="text-on-surface-variant text-body-sm">YAGNI violation; hardcode schema versioning in static env vars instead of dynamic table selector.</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low border border-outline-variant/20">
+<span class="font-label-sm text-primary font-semibold uppercase tracking-wider block text-[10px]">Designer Position</span>
+<span class="text-on-surface-variant text-body-sm">Required by FinOps compliance to support intra-quarter emergency jurisdiction adjustments.</span>
+</div>
+</div>
+<!-- Radio Options -->
+<div class="space-y-space-xs font-label-md text-body-sm">
+<label class="flex items-start gap-space-sm p-space-sm rounded border border-primary/30 bg-surface-container-low/50 hover:bg-surface-container-high/40 cursor-pointer">
+<input checked="" class="mt-0.5 text-primary focus:ring-0 cursor-pointer" name="ruling_versioning" type="radio" value="designer"/>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Side with designer (Retain dynamic versioning for FinOps)</span>
+<span class="text-on-surface-variant text-label-sm">Supports hot-reloading rates on regulatory change without re-deploying code.</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded border border-outline-variant/30 hover:bg-surface-container-low cursor-pointer">
+<input class="mt-0.5 text-primary focus:ring-0 cursor-pointer" name="ruling_versioning" type="radio" value="critic"/>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Side with critic (Simplify to static configuration)</span>
+<span class="text-on-surface-variant text-label-sm">Strict YAGNI compliance; quarterly code releases handle adjustments cleanly.</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded border border-outline-variant/30 hover:bg-surface-container-low cursor-pointer" onclick="document.getElementById('custom-ruling-2').classList.toggle('hidden');">
+<input class="mt-0.5 text-primary focus:ring-0 cursor-pointer" name="ruling_versioning" type="radio" value="custom"/>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Write my own custom ruling...</span>
+<span class="text-on-surface-variant text-label-sm">Provide nuanced instruction to agent prompt for Doc v4.</span>
+</div>
+</label>
+<div class="hidden pl-6 pt-1" id="custom-ruling-2">
+<textarea class="w-full text-body-sm font-code-sm bg-surface-container-lowest border border-outline-variant/40 rounded p-2 focus:border-primary focus:outline-none" placeholder="e.g., Keep dynamic versioning but cache schema queries locally for 10 minutes..."></textarea>
+</div>
+</div>
+</div>
+<!-- Action Execution Bar & Guardrails -->
+<div class="pt-space-md border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<!-- Primary Finalize Action -->
+<button class="h-9 px-space-xl rounded bg-secondary hover:bg-secondary-container text-on-secondary font-headline-sm text-headline-sm font-semibold flex items-center gap-2 shadow-sm transition-colors cursor-pointer" type="button">
+<span>Finalize design</span>
+<kbd class="font-kbd text-kbd px-1 py-0.5 rounded bg-surface-container-lowest/20 text-on-secondary border border-surface-container-lowest/30">↵</kbd>
+</button>
+<!-- Secondary: Choose Different Solution -->
+<button class="h-9 px-space-md rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface border border-outline-variant/40 font-label-md text-label-md flex items-center gap-1.5 transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Choose a different solution</span>
+</button>
+</div>
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant font-mono">
+              Executor: <span class="text-tertiary font-semibold">Claude Code (subscription)</span>
+</div>
+<div class="font-label-sm text-[11px] text-on-surface-variant mt-0.5">
+              JIRA is not changed. If JIRA status sync is on, you will be asked separately before Slack Off sets the ticket to In Progress.
+            </div>
+</div>
+</div>
+<!-- Guardrail Side Note -->
+<div class="px-space-md py-2 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2 border border-outline-variant/30">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span>
+<strong class="text-on-surface font-semibold">On finalize:</strong> Record rulings in the audit log → mark the design final → re-read the ticket from JIRA (read-only) → start development in per-repo worktrees. JIRA is not changed. If JIRA status sync is on, you will be asked separately before Slack Off sets the ticket to In Progress.
+          </span>
+</div>
+</form>
+</div>
+</section>
+</div></main></div>
+</body></html>

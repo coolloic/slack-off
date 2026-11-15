@@ -1,0 +1,12 @@
+{
+  "title": "CSV formatter next to the report module",
+  "approach": "Add a pure function that turns the weekly rows into CSV text, and a download handler that names the file with today's date.",
+  "changeScope": ["src/report/csv.js", "src/report/index.js", "test/csv.test.js"],
+  "pros": ["Reuses weeklyRows in src/report/weekly.js, already covered by tests"],
+  "cons": ["The number of weeks stays an open question"],
+  "risks": ["Revenue rounding must match the page (formatMoney in src/report/format.js)"],
+  "complexity": "S",
+  "affectedRepos": ["sample"],
+  "repoChanges": [{ "repo": "sample", "summary": "Add the CSV formatter and the download handler." }],
+  "newDependencies": []
+}

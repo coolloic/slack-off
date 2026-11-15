@@ -1,0 +1,54 @@
+stateDiagram-v2
+  direction TB
+  [*] --> discovered : 系统·拉票发现
+  discovered --> refining : 开发者·勾选整理（autoRefine 时为系统）
+  refining --> refined : agent·需求整理完成
+  refined --> awaiting_ac_review : 系统·该票开启了审阅
+  refined --> proposing : 系统·默认跳过审阅
+  awaiting_ac_review --> proposing : 开发者·确认需求/AC
+  refined --> refining : 开发者·重新整理
+  awaiting_ac_review --> refining : 开发者·重新整理
+  awaiting_choice --> refining : 开发者·重新整理
+  proposing --> awaiting_choice : agent·方案生成完成
+  awaiting_choice --> designing : 开发者·选定方案（拍板点 1）
+  designing --> design_final : agent·挑刺无阻塞问题
+  designing --> awaiting_debate_ruling : 系统·辩论超 3 轮仍有阻塞分歧
+  awaiting_debate_ruling --> design_final : 开发者·逐条裁决，全部采纳设计方（拍板点 1.5）
+  awaiting_debate_ruling --> designing : 开发者·逐条裁决，含采纳挑刺方/自填意见（设计 agent 应用后定稿）
+  awaiting_debate_ruling --> awaiting_choice : 开发者·改选方案
+  design_final --> checking_snapshot : 系统·开发前复读 JIRA 快照
+  checking_snapshot --> developing : 系统·快照未变或偏移无需已知晓（每个受影响仓库建 worktree）
+  checking_snapshot --> awaiting_snapshot_ack : agent·偏移需要已知晓（无出处/矛盾）
+  awaiting_snapshot_ack --> developing : 开发者·已知晓并填写说明
+  awaiting_snapshot_ack --> refining : 开发者·从需求重新规划
+  developing --> dev_done : agent·开发完成（所有受影响仓库通过或明确 tests not run）
+  dev_done --> developing : 开发者·要求修改（附说明）
+  dev_done --> awaiting_choice : 开发者·改选方案
+  dev_done --> reviewing : 开发者·交给验收（拍板点 2；开始新一轮，先复读 JIRA 快照）
+  reviewing --> awaiting_review_ack : agent·验收前偏移需要已知晓
+  awaiting_review_ack --> reviewing : 开发者·已知晓并填写说明
+  awaiting_review_ack --> refining : 开发者·从需求重新规划
+  reviewing --> developing : agent·验收失败（自动修复，每轮 ≤ review.maxAttempts 次，默认 3）
+  developing --> reviewing : agent·修复迭代完成（review_failed / rejected）
+  reviewing --> awaiting_confirmation : agent·验收通过 / e2e 未执行（not_executed）
+  awaiting_confirmation --> developing : 开发者·驳回并附意见（修复后直接回到验收，新一轮）
+  awaiting_confirmation --> reviewing : 开发者·重新验收并附意见（计入当前轮上限）
+  awaiting_confirmation --> delivering : 开发者·确认并交付（拍板点 3；计划哈希核对）
+  delivering --> awaiting_confirmation : 系统·开 PR 前复读快照，偏移需要已知晓
+  delivering --> pr_opened : 系统·push + 开 PR（所有受影响仓库的 PR 均已开）
+  pr_opened --> [*]
+
+  state "任意非终态" as any
+  any --> blocked : 系统·出错 / 超限 / 登录过期
+  blocked --> any : 开发者·重试（回到进入前状态）
+  any --> abandoned : 开发者·放弃
+
+  note right of developing
+    可选 JIRA→In Progress（jira.syncStatus，默认关）：
+    每次写需开发者确认，失败不阻塞、不改平台状态
+  end note
+  note right of pr_opened
+    pr_opened = 所有 PR 已开。其后 [可选，jira.syncStatus] JIRA→Ready for Human Review
+    与 JIRA 评论两步独立记录、可单独重试，失败不改平台状态
+  end note
+  abandoned --> [*]

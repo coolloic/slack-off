@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-tint": "#0053db", "inverse-on-surface": "#eef0ff", "secondary-fixed-dim": "#ffb77d", "outline-variant": "#c3c6d7", "inverse-primary": "#b4c5ff", "on-tertiary": "#ffffff", "primary-fixed-dim": "#b4c5ff", "error": "#ba1a1a", "on-tertiary-fixed-variant": "#005137", "surface-container-lowest": "#ffffff", "on-error": "#ffffff", "on-tertiary-fixed": "#002114", "primary": "#004ac6", "tertiary-fixed-dim": "#68dba9", "tertiary": "#006243", "on-background": "#131b2e", "on-tertiary-container": "#bdffdc", "on-secondary-fixed-variant": "#6e3900", "surface-container-high": "#e2e7ff", "on-secondary": "#ffffff", "surface-container-low": "#f2f3ff", "error-container": "#ffdad6", "surface-container-highest": "#dae2fd", "tertiary-fixed": "#85f8c4", "primary-container": "#2563eb", "surface-container": "#eaedff", "primary-fixed": "#dbe1ff", "on-surface-variant": "#434655", "on-primary-fixed-variant": "#003ea8", "on-secondary-fixed": "#2f1500", "surface": "#faf8ff", "surface-variant": "#dae2fd", "on-primary-container": "#eeefff", "on-primary-fixed": "#00174b", "surface-dim": "#d2d9f4", "background": "#faf8ff", "surface-bright": "#faf8ff", "on-surface": "#131b2e", "inverse-surface": "#283044", "tertiary-container": "#007d57", "on-secondary-container": "#663500", "on-error-container": "#93000a", "on-primary": "#ffffff", "secondary-container": "#fe932c", "outline": "#737686", "secondary": "#904d00", "secondary-fixed": "#ffdcc3" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "1rem", "gutter": "0.75rem", "space-lg": "0.75rem", "space-sm": "0.375rem", "margin": "1rem", "space-xs": "0.25rem", "space-md": "0.5rem" }, "fontFamily": { "kbd": ["JetBrains Mono"], "code-lg": ["JetBrains Mono"], "code-sm": ["JetBrains Mono"], "headline-md": ["Inter"], "label-md": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-sm": ["Inter"], "headline-sm": ["Inter"], "body-md": ["Inter"], "code-md": ["JetBrains Mono"] }, "fontSize": { "kbd": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "code-lg": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "code-sm": ["11px", { "lineHeight": "14px", "fontWeight": "400" }], "headline-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "code-md": ["12px", { "lineHeight": "16px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Go back" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><div class="flex items-center gap-space-sm"><span class="font-code-md text-code-md text-on-surface font-medium">PROJ-142</span><div class="inline-flex items-center gap-1.5 px-space-sm py-0.5 bg-secondary-fixed text-on-secondary-fixed rounded-full text-label-sm font-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>Awaiting drift ack</span></div></div></div><div class="flex items-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="h-10 px-margin flex items-center overflow-x-auto no-scrollbar scroll-smooth gap-space-sm bg-surface"><button class="flex-shrink-0 h-7 px-space-md rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center">Snapshot</button><button class="flex-shrink-0 h-7 px-space-md rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center hover:bg-surface-container-high">Requirements &amp; AC</button><button class="flex-shrink-0 h-7 px-space-md rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center hover:bg-surface-container-high">AC coverage</button><button class="flex-shrink-0 h-7 px-space-md rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center hover:bg-surface-container-high">Solutions</button></div></header><main class="flex flex-col relative w-full pt-24 pb-20 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin space-y-space-md">
+<!-- 1. Version Picker & Audit Banner -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between gap-space-sm mb-space-xs">
+<div class="relative flex-1 min-w-0">
+<label class="sr-only" for="version-select">Select snapshot version</label>
+<div class="relative flex items-center min-h-[44px] bg-surface-container-low rounded-lg px-space-md">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-space-xs shrink-0">history_toggle_off</span>
+<select class="w-full bg-transparent font-code-md text-code-md text-on-surface font-medium appearance-none pr-6 focus:outline-none cursor-pointer" id="version-select">
+<option selected="" value="v2">v2 · 2h ago</option>
+<option value="v1">v1 · 1d ago</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] pointer-events-none absolute right-space-md">expand_more</span>
+</div>
+</div>
+<div class="inline-flex items-center gap-1 px-space-sm py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-semibold">Changed since v1</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 pt-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] shrink-0 text-outline">lock</span>
+<p class="font-body-sm text-body-sm leading-tight">Read-only copy of the JIRA ticket — kept for audit</p>
+</div>
+</section>
+<!-- 2. Ticket Metadata Summary -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-0.5 bg-surface-container-high rounded-md">
+<span class="material-symbols-outlined text-[14px] text-primary">task_alt</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium">PROJ-142 · Task</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center px-space-sm py-0.5 bg-tertiary-fixed text-on-tertiary-fixed rounded-md font-label-sm text-label-sm font-medium">Ready for Dev</span>
+<span class="inline-flex items-center px-space-sm py-0.5 bg-error-container text-on-error-container rounded-md font-label-sm text-label-sm font-medium">High</span>
+</div>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface font-semibold leading-snug">
+      Add idempotency keys to webhook consumer transactions
+    </h1>
+<div class="flex flex-wrap items-center gap-space-xs pt-0.5">
+<div class="inline-flex items-center gap-1 px-space-sm py-1 bg-surface-container rounded-md font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-outline font-label-sm">Reporter:</span>
+<span class="font-medium text-on-surface">JIRA Sync</span>
+</div>
+<div class="inline-flex items-center gap-1 px-space-sm py-1 bg-surface-container rounded-md font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-outline font-label-sm">Assignee:</span>
+<span class="font-medium text-primary">You</span>
+</div>
+</div>
+</section>
+<!-- 3. Description Card -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Description</h2>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 bg-surface-container-high text-on-surface-variant rounded">#v2</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Anchored for AC traceability</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Paragraph 1 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="font-code-sm text-code-sm text-outline bg-surface-container px-1 py-0.5 rounded shrink-0 select-none">p1</span>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+          Webhook consumers must deduplicate payloads using Stripe idempotency key headers within a 24h rolling TTL window to prevent double billing and race conditions during network retries.
+        </p>
+</div>
+<!-- Paragraph 2 (Changed) -->
+<div class="flex flex-col gap-1 p-space-sm bg-secondary-fixed/20 rounded-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-code-sm text-code-sm font-semibold text-on-secondary-fixed-variant bg-secondary-fixed px-1 py-0.5 rounded shrink-0 select-none">p2</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm font-medium text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              changed
+            </span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">diff: +2 sentences</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed pt-0.5">
+          All duplicated incoming events return HTTP 200 with cached signature response payload. In-flight duplicate requests must acquire an atomic distributed lock or yield until the primary transaction settles.
+        </p>
+</div>
+<!-- Paragraph 3 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="font-code-sm text-code-sm text-outline bg-surface-container px-1 py-0.5 rounded shrink-0 select-none">p3</span>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+          Consumer acknowledgment offset committed only after DB transaction commits. If DB commit fails, transaction rolls back and message remains unacknowledged for DLQ routing.
+        </p>
+</div>
+<!-- Paragraph 4 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="font-code-sm text-code-sm text-outline bg-surface-container px-1 py-0.5 rounded shrink-0 select-none">p4</span>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+          Fallback memory cache engaged for Redis failover scenario during deployment window with automated health-check re-connection.
+        </p>
+</div>
+</div>
+</section>
+<!-- 4. Comments (3) Section -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Comments (3)</h2>
+<span class="font-label-sm text-label-sm text-outline">Synchronized copy</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Comment 1 -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-1">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-code-sm text-code-sm text-primary font-medium truncate">comment#10423</span>
+<span class="text-outline text-label-sm">·</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium truncate">Commenter (Product Eng)</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline shrink-0">2h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+          Updated p2 to clarify HTTP 200 response behavior when idempotency key is matched. Secondary signature caching will be tracked in PROJ-145.
+        </p>
+</div>
+<!-- Comment 2 -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-1">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-code-sm text-code-sm text-primary font-medium truncate">comment#10418</span>
+<span class="text-outline text-label-sm">·</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium truncate">Commenter (Infra Team)</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline shrink-0">5h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+          Redis cluster TTL should be configured to 86400s (24h) with strict memory policy volatile-lru.
+        </p>
+</div>
+<!-- Comment 3 -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-1">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-code-sm text-code-sm text-primary font-medium truncate">comment#10399</span>
+<span class="text-outline text-label-sm">·</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium truncate">Commenter (QA Lead)</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline shrink-0">1d ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+          Please ensure unit test fixtures include Stripe replay webhooks with duplicate signatures under concurrent load.
+        </p>
+</div>
+</div>
+</section>
+<!-- 5. Attachments (2) Section -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm mb-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Attachments (2)</h2>
+<span class="font-label-sm text-label-sm text-outline">Not downloaded in phase 1</span>
+</div>
+<div class="space-y-space-xs">
+<!-- Attachment 1 -->
+<div class="flex items-center justify-between gap-space-sm p-space-sm rounded-lg bg-surface-container-low min-h-[44px]">
+<div class="flex items-center gap-space-sm min-w-0 flex-1">
+<div class="w-8 h-8 rounded-md bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-primary">image</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-code-sm text-code-sm font-medium text-on-surface truncate">flow.png</p>
+<p class="font-body-sm text-body-sm text-outline">142 KB · 2h ago</p>
+</div>
+</div>
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm shrink-0 font-medium">metadata only</span>
+</div>
+<!-- Attachment 2 -->
+<div class="flex items-center justify-between gap-space-sm p-space-sm rounded-lg bg-surface-container-low min-h-[44px]">
+<div class="flex items-center gap-space-sm min-w-0 flex-1">
+<div class="w-8 h-8 rounded-md bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-error">picture_as_pdf</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-code-sm text-code-sm font-medium text-on-surface truncate">spec.pdf</p>
+<p class="font-body-sm text-body-sm text-outline">1.2 MB · 1d ago</p>
+</div>
+</div>
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm shrink-0 font-medium">metadata only</span>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Interactive micro-behavior: switch version selector and hint
+  const selectElem = document.getElementById('version-select');
+  if (selectElem) {
+    selectElem.addEventListener('change', (e) => {
+      const isV1 = e.target.value === 'v1';
+      const changedBlock = document.querySelector('.bg-secondary-fixed\\/20');
+      if (changedBlock) {
+        if (isV1) {
+          changedBlock.classList.remove('bg-secondary-fixed/20');
+          changedBlock.classList.add('bg-surface-container-low');
+        } else {
+          changedBlock.classList.add('bg-secondary-fixed/20');
+          changedBlock.classList.remove('bg-surface-container-low');
+        }
+      }
+    });
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface border-t border-outline-variant" data-active-classes="text-primary font-label-md"><div class="flex justify-around items-center h-16 px-gutter"><a aria-current="page" class="flex flex-col items-center justify-center gap-space-xs min-w-[44px] min-h-[44px] text-primary font-label-md" data-path="ticket-detail" href="#"><span class="material-symbols-outlined text-[20px]">confirmation_number</span><span class="font-label-sm text-label-sm">Tickets</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-sm text-label-sm">Settings</span></a></div></nav></body></html>

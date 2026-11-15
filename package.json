@@ -1,0 +1,29 @@
+{
+  "name": "slack-off",
+  "description": "A local platform that takes a JIRA ticket through requirements, solutions, design, development, independent acceptance and delivery with sandboxed Claude Code agents, every decision made by you, from your desk or your phone.",
+  "private": true,
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/coolloic/slack-off.git" },
+  "homepage": "https://github.com/coolloic/slack-off#readme",
+  "bugs": "https://github.com/coolloic/slack-off/issues",
+  "type": "module",
+  "packageManager": "pnpm@12.6.0",
+  "engines": {
+    "node": ">=26"
+  },
+  "scripts": {
+    "dev:server": "node --disable-sigusr1 packages/server/src/main.ts",
+    "dev:web": "pnpm -F web dev",
+    "start": "pnpm -F web build && node --disable-sigusr1 packages/server/src/main.ts",
+    "test": "pnpm -r test",
+    "e2e": "playwright test --project=desktop && playwright test --project=mobile && playwright test --project=desktop-phase2 && playwright test --project=mobile-phase2 && playwright test --project=desktop-phase3 && playwright test --project=mobile-phase3 && playwright test --project=desktop-phase4a && playwright test --project=mobile-phase4a && playwright test --project=desktop-phase4b && playwright test --project=mobile-phase4b && playwright test --project=desktop-phase4c && playwright test --project=mobile-phase4c && playwright test --project=desktop-phase4d && playwright test --project=mobile-phase4d && playwright test --project=desktop-phase4f && playwright test --project=mobile-phase4f",
+    "screenshots": "playwright test --project=screenshots",
+    "check:public": "node scripts/public-content-check.mjs",
+    "typecheck": "pnpm -r exec tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "^26.6.6",
+    "typescript": "^5.9.0"
+  }
+}

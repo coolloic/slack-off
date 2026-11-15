@@ -1,0 +1,42 @@
+sequenceDiagram
+  autonumber
+  actor Dev as 开发者
+  participant UI as Web UI
+  participant S as 平台 Server
+  participant DB as SQLite + 审计
+  participant CLI as claude CLI<br/>(skill: jira-browser)
+  participant Chrome as 开发者的 Chrome
+  participant JIRA as JIRA Cloud
+  participant R as claude CLI<br/>(skill: refine-ticket)
+
+  Dev->>UI: 点"拉取新票"
+  UI->>S: POST /api/discover
+  S->>CLI: 无界面运行 + 浏览器只读工具
+  CLI->>Chrome: 打开 JQL 搜索页
+  Chrome->>JIRA: 用开发者登录态请求
+  JIRA-->>Chrome: 票列表
+  alt 登录过期
+    CLI-->>S: loginRequired = true
+    S-->>UI: SSE source_error：请在 Chrome 登录 JIRA
+  else 正常
+    CLI-->>S: DiscoverResult（schema 校验）
+    S->>DB: upsert 票（已有的票不重置状态）+ 审计
+    S-->>UI: SSE 新票列表
+  end
+  Dev->>UI: 勾选一张票"整理"
+  UI->>S: POST /tickets/:key/refine
+  S->>DB: discovered → refining
+  S->>CLI: 读取票详情 + 全部评论
+  CLI-->>S: TicketContent（快照入库）
+  S->>R: 只给票内容快照
+  R-->>S: Requirement：需求 + AC + 疑问点 + 评论草稿
+  alt 输出不合 schema
+    S->>R: 附错误信息重试 1 次
+    R-->>S: 仍失败 → 票进入 blocked
+  end
+  S->>DB: 保存需求 v1 → refined
+  alt 该票开启了审阅
+    S-->>UI: 拍板点 0：等待审阅 / 编辑 AC
+    Dev->>UI: 编辑并确认 → 需求 v2（human）
+  end
+  S->>S: 入队出方案

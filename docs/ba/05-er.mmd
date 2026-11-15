@@ -1,0 +1,357 @@
+erDiagram
+  TICKET ||--o{ TICKET_SNAPSHOT : "原始快照（只增）"
+  TICKET_SNAPSHOT ||--o{ SNAPSHOT_COMMENT : "评论"
+  TICKET_SNAPSHOT ||--o{ SNAPSHOT_ATTACHMENT : "附件/截图"
+  TICKET_SNAPSHOT |o--o| TICKET_SNAPSHOT : "上一版"
+  TICKET_SNAPSHOT ||--o{ REQUIREMENT : "据此整理"
+  REQUIREMENT ||--o{ AC_TRACE : "AC 出处"
+  TICKET_SNAPSHOT ||--o{ AC_TRACE : "被引用"
+  TICKET ||--o{ DRIFT_CHECK : "偏移检查"
+  REQUIREMENT ||--o{ DRIFT_CHECK : "被检查"
+  TICKET ||--o{ REQUIREMENT : "版本"
+  TICKET ||--o{ SOLUTION : "方案"
+  TICKET ||--o{ CHOICE : "选择"
+  TICKET ||--o{ DESIGN_DOC : "设计版本"
+  TICKET ||--o{ DEBATE_ROUND : "辩论"
+  TICKET ||--o{ DEBATE_RULING : "裁决"
+  TICKET ||--o{ DEV_ITERATION : "开发轮次"
+  TICKET ||--o{ TICKET_REPO : "受影响仓库 worktree"
+  TICKET ||--o{ JIRA_WRITE : "JIRA 写（需确认）"
+  DEV_ITERATION ||--o{ DEV_STEP : "步骤"
+  CHOICE ||--o{ DESIGN_DOC : "据此设计"
+  CHOICE ||--o{ DEBATE_ROUND : "辩论"
+  TICKET ||--o{ REVIEW_SERIES : "验收轮次"
+  REVIEW_SERIES ||--o{ REVIEW_REPORT : "第几次验收"
+  TICKET ||--o{ REVIEW_DECISION : "拍板点 3"
+  REVIEW_REPORT ||--o{ REVIEW_DECISION : "据此决定"
+  TICKET ||--o{ ACCEPTANCE_RUN : "验收进程（恢复清理）"
+  TICKET ||--o{ DELIVERY : "确认并交付"
+  REVIEW_REPORT ||--o{ DELIVERY : "据此交付"
+  DELIVERY ||--o{ DELIVERY_STEP : "逐条步骤"
+  TICKET ||--o{ JIRA_COMMENT : "JIRA 评论（需确认）"
+  DELIVERY_STEP |o--o| JIRA_WRITE : "jira_status 步"
+  DELIVERY_STEP |o--o| JIRA_COMMENT : "jira_comment 步"
+  TICKET_SNAPSHOT ||--o{ REVIEW_REPORT : "据此验收"
+  TICKET ||--o{ AGENT_RUN : "运行"
+  TICKET ||--o{ AUDIT_EVENT : "审计"
+  REQUIREMENT ||--o{ SOLUTION : "基于"
+  REQUIREMENT ||--o{ CHOICE : "锁定版本"
+  REQUIREMENT ||--o{ DESIGN_DOC : "锁定版本"
+  REQUIREMENT ||--o{ REVIEW_REPORT : "按此验收"
+  SOLUTION ||--o{ CHOICE : "被选"
+  DESIGN_DOC ||--o{ DEBATE_ROUND : "被挑刺"
+  DEBATE_ROUND ||--o{ DEBATE_RULING : "分歧"
+  REVIEW_REPORT ||--o{ REVIEW_EVIDENCE : "证据"
+  PROMPT_VERSION ||--o{ AGENT_RUN : "使用"
+  CHOICE ||--o| PREFERENCE_SIGNAL : "选择特征"
+  TICKET ||--o{ PREFERENCE_SIGNAL : "偏好信号"
+  PREFERENCE_SUMMARY ||--o{ AGENT_RUN : "propose 运行所见版本"
+
+  TICKET {
+    text key PK "JIRA key"
+    text title
+    text url
+    text jira_status
+    text state "平台状态"
+    text prev_state "blocked 前"
+    text blocked_reason
+    int review_ac "出方案前审阅"
+    text repo_path
+    text branch
+    text worktree_path
+    int review_attempts "阶段 1 遗留；阶段 3 按 review_report.attempt 计数"
+    text created_at
+    text updated_at
+  }
+  TICKET_SNAPSHOT {
+    int id PK
+    text ticket_key FK
+    int prev_snapshot_id FK "可空"
+    text fetched_at
+    text jira_updated_at
+    text title
+    text description
+    text content_hash "sha256，相同不新建"
+    text change_summary "相对上一版"
+  }
+  SNAPSHOT_COMMENT {
+    int id PK
+    int snapshot_id FK
+    text jira_comment_id
+    text author
+    text created
+    text body
+  }
+  SNAPSHOT_ATTACHMENT {
+    int id PK
+    int snapshot_id FK
+    text kind "attachment | inline_image"
+    text filename
+    text mime
+    text local_path
+    text sha256
+  }
+  AC_TRACE {
+    int id PK
+    int requirement_id FK
+    text ac_id "AC-n"
+    int snapshot_id FK
+    text source_type "description | comment | attachment | developer"
+    text source_ref "评论 ID / 附件 ID"
+    text quote "原文片段"
+    text reason "开发者新增时必填"
+  }
+  DRIFT_CHECK {
+    int id PK
+    text ticket_key FK
+    int requirement_id FK
+    int baseline_snapshot_id FK "最初快照"
+    int latest_snapshot_id FK
+    text trigger "ac_edited | snapshot_changed | before_review"
+    text result_json "每条 AC: traced | partial | untraced | contradicts"
+    int acknowledged "开发者已知晓"
+    text created_at
+  }
+  REQUIREMENT {
+    int id PK
+    text ticket_key FK
+    int snapshot_id FK "据此整理"
+    int version "UNIQUE(ticket_key, version)"
+    text content_json "需求 + AC + 疑问点"
+    text draft_comment "未发送"
+    text source "agent | human"
+    text created_at
+  }
+  SOLUTION {
+    int id PK
+    text ticket_key FK
+    int requirement_id FK
+    int idx
+    text content_json "思路/优缺点/风险/复杂度"
+  }
+  CHOICE {
+    int id PK
+    text ticket_key FK
+    int solution_id FK
+    int requirement_id FK
+    text note
+    text affected_repos_json "受影响仓库（阶段 1 旧行为 NULL）"
+    text created_at
+  }
+  TICKET_REPO {
+    text ticket_key PK "FK"
+    text repo_name PK
+    text repo_path
+    text base_branch
+    text branch "slackoff/KEY-slug"
+    text worktree_path
+    text install_json "InstallReport，未运行为 NULL"
+    text created_at
+  }
+  DESIGN_DOC {
+    int id PK
+    text ticket_key FK
+    int requirement_id FK
+    int choice_id FK
+    int version "UNIQUE(ticket_key, version)"
+    text content_json "contentMd + 每仓库 contentMd"
+    text checklist_json "质量清单逐项结论"
+    text responses_json "对评论的回应"
+    int is_final "只能 0→1，其余不可改"
+    text created_at
+  }
+  DEBATE_ROUND {
+    int id PK
+    text ticket_key FK
+    int choice_id FK
+    int design_doc_id FK
+    int round "≤ debate.maxRounds"
+    text role "designer | critic"
+    text content_json "critic: 评论 + 清单覆盖；designer: 回应"
+    text created_at "只增"
+  }
+  DEBATE_RULING {
+    int id PK
+    text ticket_key FK
+    int debate_round_id FK "UNIQUE(debate_round_id, comment_id)"
+    text comment_id "C-n"
+    text decision "designer | critic | custom"
+    text note "custom 时必填"
+    text decided_by "local | device:id"
+    text created_at "只增"
+  }
+  DEV_ITERATION {
+    int id PK
+    text ticket_key FK
+    int iteration
+    text trigger "initial | developer_request | review_failed | rejected | retry"
+    text note
+    text status "running | done | failed"
+    text summary
+    text started_at
+    text ended_at
+  }
+  DEV_STEP {
+    int id PK
+    int iteration_id FK "UNIQUE(iteration_id, step)"
+    int step
+    text summary
+    text repos_json "每仓库: 违规/测试/commit/未提交改动"
+    text created_at "只增"
+  }
+  JIRA_WRITE {
+    int id PK
+    text ticket_key FK
+    text target_status
+    text state "pending | confirmed | skipped | done | failed | not_needed"
+    text detail
+    text result_json
+    text decided_by "local | device:id"
+    text requested_at
+    text decided_at
+    text finished_at
+  }
+  REVIEW_SERIES {
+    int id PK
+    text ticket_key FK
+    text started_by "handoff | rejected | retry"
+    text note
+    text decided_by "local | device:id"
+    text created_at "只增"
+  }
+  REVIEW_REPORT {
+    int id PK
+    text ticket_key FK
+    int series_id FK "UNIQUE(series_id, attempt)"
+    int requirement_id FK
+    int snapshot_id FK "所依据的 JIRA 快照"
+    int attempt "≤ review.maxAttempts"
+    text verdict "passed | failed | not_executed"
+    text report_json "AcceptanceReport"
+    text developer_note "重新验收说明"
+    text created_at "只增"
+  }
+  REVIEW_EVIDENCE {
+    int id PK
+    int report_id FK "UNIQUE(report_id, ref_key)"
+    text ref_key "acId/n"
+    text ac_id
+    text kind "screenshot | http | log"
+    text path "相对 SLACKOFF_HOME/reviews/"
+    text caption
+    text sha256
+    int bytes
+    text created_at "只增"
+  }
+  REVIEW_DECISION {
+    int id PK
+    text ticket_key FK
+    int report_id FK
+    text decision "rejected | re_review | confirmed"
+    text note
+    text decided_by "local | device:id"
+    text created_at "只增"
+  }
+  ACCEPTANCE_RUN {
+    int id PK
+    text ticket_key FK
+    int series_id FK
+    int attempt
+    text run_root
+    text pgids_json "平台启动的进程组"
+    text status "running | finished | interrupted"
+    text started_at
+    text ended_at
+  }
+  DELIVERY {
+    int id PK
+    text ticket_key FK
+    int report_id FK
+    text plan_json "DeliveryPlan"
+    text plan_hash "确认时核对"
+    text ack_note "不进哈希"
+    text decided_by "local | device:id"
+    text created_at "只增"
+  }
+  DELIVERY_STEP {
+    int id PK
+    int delivery_id FK "UNIQUE(delivery_id, seq)"
+    int seq
+    text kind "snapshot | push | pr | pr_links | jira_status | jira_comment"
+    text repo "可空"
+    text text "确认框原文"
+    text state "pending | running | done | failed | not_needed"
+    text detail
+    text result_json
+    int jira_write_id FK "可空"
+    int jira_comment_id FK "可空"
+    text started_at
+    text finished_at
+  }
+  JIRA_COMMENT {
+    int id PK
+    text ticket_key FK
+    text purpose "clarification | delivery"
+    text text "逐字输入"
+    text state "pending | confirmed | skipped | done | failed | not_needed"
+    text detail
+    text result_json
+    text decided_by "local | device:id"
+    text requested_at
+    text decided_at
+    text finished_at
+  }
+  AGENT_RUN {
+    text id PK
+    text ticket_key FK "可空"
+    text role
+    text executor "claude-code | claude-api"
+    text skill_version
+    int prompt_version_id FK "可空"
+    text status "running | ok | invalid_output | error"
+    real cost_usd
+    text usage_json
+    text raw_log_path
+    text rules_hash "仓库规则文件"
+    text repo_prompt_hash
+    int preference_version "propose-solutions 所见的偏好摘要版本，可空"
+    text purpose "ticket | discover | trial"
+    text draft_hash "试运行草稿提示词的哈希，可空"
+    text started_at
+    text ended_at
+  }
+  AUDIT_EVENT {
+    int id PK
+    text ts
+    text actor "developer | system | agent:角色"
+    text type
+    text ticket_key FK "可空"
+    text payload_json
+    text prev_hash
+    text hash "sha256(prev_hash + 事件)"
+  }
+  PROMPT_VERSION {
+    int id PK
+    text role
+    int version "UNIQUE(role, version)"
+    text text
+    text created_at
+  }
+  PREFERENCE_SIGNAL {
+    int id PK
+    text ticket_key FK
+    int choice_id FK "UNIQUE，每次选择一条"
+    text features_json "ChoiceFeatures：只有数字与枚举"
+    int superseded "0 -> 1（同票再次选择）；禁止删除"
+    text created_at
+  }
+  PREFERENCE_SUMMARY {
+    int id PK
+    int version "UNIQUE，只增"
+    text text "确定性推导或开发者编辑"
+    text source "derived | edited | cleared"
+    int signals_upto "推导 / 编辑时最后一条信号 id"
+    int cleared_before "cleared：此 id 之前的信号不再参与"
+    text decided_by
+    text created_at
+  }

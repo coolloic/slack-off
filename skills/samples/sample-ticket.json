@@ -1,0 +1,29 @@
+{
+  "loginRequired": false,
+  "key": "SAMPLE-1",
+  "title": "Export the weekly report as CSV",
+  "description": "Managers want to download the weekly orders report as a CSV file so they can open it in a spreadsheet.\n\nThe report page already shows the table (week, number of orders, revenue). Add a \"Download CSV\" button next to the table. The file should contain the same columns as the table, one row per week, for the last 12 weeks. Revenue is shown with two decimals.",
+  "jiraUpdatedAt": "2026-01-12T09:30:00.000Z",
+  "status": "Ready for Dev",
+  "comments": [
+    {
+      "jiraCommentId": "10001",
+      "author": "Product owner",
+      "created": "2026-01-10T14:02:00.000Z",
+      "body": "Please name the file weekly-report-<date>.csv where date is the day of the download (YYYY-MM-DD)."
+    },
+    {
+      "jiraCommentId": "10002",
+      "author": "Support lead",
+      "created": "2026-01-11T08:45:00.000Z",
+      "body": "Customers asked for the last 26 weeks, not 12. Twelve is too short for a half-year review."
+    },
+    {
+      "jiraCommentId": "10003",
+      "author": "Product owner",
+      "created": "2026-01-11T16:20:00.000Z",
+      "body": "Agreed: use a comma as the separator and quote text fields. The header row uses the column titles from the page."
+    }
+  ],
+  "attachments": []
+}

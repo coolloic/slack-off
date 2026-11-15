@@ -1,0 +1,52 @@
+name: Bug report
+description: Something in Slack Off does not work as the README or the install guide says.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The repository is public. **Use placeholder names only**: `https://your-company.atlassian.net`, tickets like `PROJ-1`, `you@example.com`, `example-org`, `/Users/<you>`. Never paste a real ticket, a company host, a token or a screenshot with real data. A vulnerability goes to the Security tab, not here.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead. Can you reproduce it in fake mode (`SLACKOFF_FAKE_EXECUTOR=1`)?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Start in fake mode
+        2. Fetch new tickets
+        3. Open FAKE-1 → Solutions
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options: [Desktop browser, Phone (paired over Tailscale), Both, Not UI related]
+    validations:
+      required: true
+  - type: dropdown
+    id: modes
+    attributes:
+      label: Modes
+      description: Settings → Executor and Settings → JIRA.
+      multiple: true
+      options: [Fake mode, Claude subscription, Claude API key, JIRA through Chrome, JIRA API]
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Output of `git rev-parse --short HEAD`, `node --version`, `claude --version` and the macOS version.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: The relevant part of the server output or the run log, with anything private replaced.
+      render: text

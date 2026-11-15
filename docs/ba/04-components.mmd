@@ -1,0 +1,57 @@
+flowchart LR
+  subgraph LOCAL["开发者本机 · 只监听 127.0.0.1"]
+    direction LR
+    UI["Web UI<br/>React + Vite"]
+    subgraph SERVER["Server · Hono / Node 24"]
+      direction TB
+      API["HTTP API + SSE"]
+      WF["流程编排<br/>状态机 + 任务队列"]
+      AUD["审计日志<br/>只追加 · 哈希链"]
+      DB[("node:sqlite<br/>~/.slackoff/slackoff.db")]
+      CFG["配置 + 提示词版本"]
+      subgraph EXEC["Executor 抽象"]
+        CCE["ClaudeCodeExecutor<br/>（默认 · 订阅）"]
+        CAE["ClaudeApiExecutor<br/>（可选 · API key）"]
+      end
+      subgraph SRC["TicketSource 抽象"]
+        BJS["BrowserJiraSource<br/>（默认）"]
+        AJS["ApiJiraSource<br/>（可选）"]
+      end
+      WT["Worktree / 快照管理"]
+      OTEL["运行追踪<br/>OpenTelemetry（可选）"]
+    end
+    CLI["claude CLI<br/>+ skills/（7+1 个角色）"]
+    REPO[("目标仓库<br/>worktree 分支")]
+    SNAP[("验收快照<br/>无 git 历史")]
+  end
+  subgraph CHROME["开发者的 Chrome · 自己的登录态"]
+    EXT["Claude in Chrome 扩展"]
+  end
+  subgraph EXTERNAL["外部服务"]
+    ANT["Anthropic<br/>（订阅 / API）"]
+    JIRA["JIRA Cloud"]
+    GH["GitHub"]
+    TRACE["LangSmith / Langfuse<br/>（仅在配置后）"]
+  end
+
+  UI <--> API
+  API --> WF
+  WF --> AUD --> DB
+  WF --> DB
+  WF --> CFG
+  WF --> CCE
+  WF -.-> CAE
+  WF --> BJS
+  WF -.-> AJS
+  WF --> WT
+  CCE --> CLI
+  CLI --> ANT
+  CAE --> ANT
+  BJS --> CLI
+  CLI --> EXT --> JIRA
+  AJS --> JIRA
+  WT --> REPO
+  WT --> SNAP
+  CLI --> REPO
+  WT -- "push / gh pr create（确认后）" --> GH
+  OTEL -.-> TRACE

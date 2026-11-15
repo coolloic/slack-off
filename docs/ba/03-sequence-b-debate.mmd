@@ -1,0 +1,39 @@
+sequenceDiagram
+  autonumber
+  actor Dev as 开发者
+  participant S as 平台 Server
+  participant DB as SQLite + 审计
+  participant P as claude CLI<br/>(skill: propose-solutions)
+  participant D as claude CLI<br/>(skill: design-solution)
+  participant C as claude CLI<br/>(skill: critique-design)
+
+  S->>P: 需求（锁定版本）+ 仓库只读
+  P-->>S: 1..N 方案（优缺点 / 风险 / 复杂度）
+  S->>DB: 保存方案 → awaiting_choice
+  S-->>Dev: 拍板点 1：选方案
+  Dev->>S: 选定方案 + 备注
+  S->>DB: 记录选择（含需求版本）→ designing
+  S->>D: 需求 + 方案 + 备注 + 代码
+  D-->>S: 设计文档 v1（质量清单逐项）
+  loop 最多 3 轮
+    S->>C: 需求 + 设计文档 + 代码（新会话）
+    C-->>S: 意见列表（清单项 · 阻塞/非阻塞）
+    S->>DB: 记录本轮辩论（审计）
+    alt 无阻塞意见
+      S->>DB: → design_final
+    else 有阻塞意见
+      S->>D: 意见 → 回应或修改
+      D-->>S: 设计文档 v(n+1)
+    end
+  end
+  opt 3 轮后仍有阻塞分歧
+    S->>DB: → awaiting_debate_ruling + 分歧摘要
+    S-->>Dev: 拍板点 1.5：逐条裁决
+    alt 逐条裁决
+      Dev->>S: 采纳设计方 / 采纳挑刺方 / 自己的意见
+      S->>DB: 裁决入审计 → design_final
+    else 改选方案
+      Dev->>S: 改选方案
+      S->>DB: → awaiting_choice
+    end
+  end

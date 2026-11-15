@@ -1,0 +1,16 @@
+{
+  "name": "@slackoff/server",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-concurrency=4 --test-timeout=180000 test/*.test.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.6",
+    "@slackoff/shared": "workspace:*",
+    "hono": "^4.13.16",
+    "zod": "^4.6.7"
+  }
+}

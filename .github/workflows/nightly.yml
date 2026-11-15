@@ -1,0 +1,66 @@
+# Every night: the whole suite on main, the Playwright e2e at desktop and phone width included, and the fresh-clone
+# check a first-time user goes through. A failure opens an issue labelled "nightly-failure" (or comments on the open
+# one), so a breakage that slipped past CI, or a dependency that changed underneath, is seen the next morning.
+# Uses only the built-in GITHUB_TOKEN; no repository secrets.
+name: Nightly
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # 03:17 UTC every day
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nightly
+  cancel-in-progress: false
+
+jobs:
+  full:
+    runs-on: macos-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm check:public
+      - run: pnpm test
+      # the UI tests use the runner's installed Google Chrome; the acceptance re-run uses Playwright's Chromium
+      - run: pnpm exec playwright install chromium
+      - run: pnpm e2e
+      - run: scripts/fresh-clone-check.sh
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces
+          path: test-results/
+          retention-days: 7
+
+  report:
+    needs: full
+    if: failure() && github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh label create nightly-failure --color B60205 --description "The nightly run failed" 2>/dev/null || true
+          open=$(gh issue list --label nightly-failure --state open --json number --jq '.[0].number')
+          if [ -n "$open" ]; then
+            gh issue comment "$open" --body "Failed again on $(date -u +%F): $RUN_URL"
+          else
+            gh issue create --label nightly-failure --title "Nightly run failed on $(date -u +%F)" \
+              --body "The nightly run on \`main\` failed: $RUN_URL. Close this issue once main is green again."
+          fi

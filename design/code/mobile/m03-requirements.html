@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed-dim": "#68dba9", "on-primary-fixed-variant": "#003ea8", "surface-container-lowest": "#ffffff", "secondary-container": "#fe932c", "on-primary-container": "#eeefff", "surface-container-highest": "#dae2fd", "on-tertiary-fixed-variant": "#005137", "on-secondary-fixed": "#2f1500", "outline": "#737686", "on-error": "#ffffff", "primary-container": "#2563eb", "surface-bright": "#faf8ff", "error-container": "#ffdad6", "on-surface-variant": "#434655", "secondary": "#904d00", "on-error-container": "#93000a", "primary-fixed": "#dbe1ff", "on-primary-fixed": "#00174b", "error": "#ba1a1a", "on-tertiary-container": "#bdffdc", "on-secondary": "#ffffff", "surface-tint": "#0053db", "surface-dim": "#d2d9f4", "on-tertiary-fixed": "#002114", "on-primary": "#ffffff", "on-tertiary": "#ffffff", "tertiary-container": "#007d57", "tertiary": "#006243", "background": "#faf8ff", "inverse-surface": "#283044", "primary-fixed-dim": "#b4c5ff", "primary": "#004ac6", "on-secondary-fixed-variant": "#6e3900", "on-secondary-container": "#663500", "secondary-fixed-dim": "#ffb77d", "surface-container-high": "#e2e7ff", "outline-variant": "#c3c6d7", "on-surface": "#131b2e", "secondary-fixed": "#ffdcc3", "on-background": "#131b2e", "inverse-on-surface": "#eef0ff", "surface": "#faf8ff", "surface-container-low": "#f2f3ff", "surface-variant": "#dae2fd", "surface-container": "#eaedff", "inverse-primary": "#b4c5ff", "tertiary-fixed": "#85f8c4" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-md": "0.5rem", "space-xs": "0.25rem", "space-xl": "1rem", "space-lg": "0.75rem", "space-sm": "0.375rem", "gutter": "0.75rem", "margin": "1rem" }, "fontFamily": { "code-lg": ["JetBrains Mono"], "headline-sm": ["Inter"], "body-md": ["Inter"], "code-sm": ["JetBrains Mono"], "kbd": ["JetBrains Mono"], "headline-md": ["Inter"], "code-md": ["JetBrains Mono"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "label-md": ["Inter"], "body-sm": ["Inter"] }, "fontSize": { "code-lg": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "headline-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "code-sm": ["11px", { "lineHeight": "14px", "fontWeight": "400" }], "kbd": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "headline-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "code-md": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Navigate back" class="w-11 h-11 -ml-space-sm flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><div class="flex items-center gap-space-xs"><span class="font-code-md text-code-md text-primary bg-primary-fixed/40 px-space-xs py-0.5 rounded">PROJ-128</span><div class="flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed min-w-0"><span class="w-1.5 h-1.5 shrink-0 rounded-full bg-primary"></span><span class="font-code-sm text-code-sm truncate">Reviewing AC</span></div></div></div><div class="flex items-center gap-space-sm"><h1 class="sr-only">Ticket Review</h1><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-20 bg-surface flex-1"><div class="flex flex-col w-full text-on-surface">
+<!-- Horizontal Workflow Tab Strip -->
+<div class="w-full bg-surface border-b border-surface-container-high px-margin py-space-sm flex items-center overflow-x-auto whitespace-nowrap scrollbar-none gap-space-xs">
+<button class="min-h-[44px] px-space-md py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors flex items-center" type="button">
+      Snapshot
+    </button>
+<button class="min-h-[44px] px-space-md py-1.5 rounded-full font-label-md text-label-md text-on-primary bg-primary font-semibold shadow-sm flex items-center gap-1.5" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+      Requirements &amp; AC
+    </button>
+<button class="min-h-[44px] px-space-md py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors flex items-center" type="button">
+      AC coverage
+    </button>
+<button class="min-h-[44px] px-space-md py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors flex items-center" type="button">
+      Solutions
+    </button>
+</div>
+<!-- Main Scrollable Body Content -->
+<div class="px-margin pt-space-md pb-32 space-y-space-xl">
+<!-- 1. Requirement Summary Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Requirement Overview</h2>
+</div>
+<span class="font-code-sm text-code-sm bg-surface-container text-on-surface-variant px-space-xs py-0.5 rounded">
+          JIRA sync · 18m ago
+        </span>
+</div>
+<div class="bg-surface rounded-lg p-space-md font-body-md text-body-md text-on-surface leading-relaxed">
+        Implement Stripe tax calculation fallback webhook handler with exponential backoff retry policy and idempotent dead-letter queue routing for unrecoverable errors.
+      </div>
+<div class="flex items-center gap-1.5 pt-0.5">
+<span class="material-symbols-outlined text-[14px] text-outline">history_edu</span>
+<p class="font-label-sm text-label-sm text-outline">Editable draft · changes will be tracked in version history</p>
+</div>
+</div>
+<!-- 2. Acceptance Criteria Section -->
+<div class="space-y-space-md">
+<!-- Section Header -->
+<div class="flex items-center justify-between px-0.5">
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface">Acceptance criteria</h2>
+<span class="font-code-sm text-code-sm font-semibold bg-surface-container-high text-on-surface px-1.5 py-0.5 rounded">4</span>
+</div>
+<span class="font-code-sm text-code-sm bg-primary-fixed/50 text-on-primary-fixed-variant px-space-xs py-0.5 rounded font-medium">
+          v2 draft
+        </span>
+</div>
+<!-- AC Stack -->
+<div class="space-y-space-md">
+<!-- AC-1 (Read-only) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-code-lg text-code-lg font-bold text-on-surface">AC-1</span>
+<span class="font-code-sm text-code-sm bg-surface-container text-on-surface-variant px-space-xs py-0.5 rounded truncate max-w-[130px]">
+                description#p2
+              </span>
+</div>
+<button aria-label="Edit AC-1" class="w-11 h-11 min-h-[44px] min-w-[44px] -mr-1 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Webhook consumers must deduplicate payloads using Stripe idempotency key headers within a 24h rolling TTL window.
+          </p>
+<div class="flex items-center gap-1.5 pt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Covered in baseline</span>
+</div>
+</div>
+<!-- AC-2 (Inline Edit Mode Active) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-md space-y-space-md bg-gradient-to-b from-primary-fixed/20 to-surface-container-lowest">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-code-lg text-code-lg font-bold text-primary">AC-2</span>
+<span class="font-code-sm text-code-sm bg-surface-container-high text-on-surface-variant px-space-xs py-0.5 rounded truncate max-w-[130px]">
+                comment #10423
+              </span>
+</div>
+<div class="flex items-center gap-1 bg-primary text-on-primary px-space-xs py-0.5 rounded font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright animate-ping"></span>
+<span>Editing</span>
+</div>
+</div>
+<!-- Edit Textarea -->
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="ac-2-body">Criteria Definition</label>
+<textarea class="w-full p-space-md bg-surface text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:bg-surface-container-lowest transition-colors resize-none" id="ac-2-body" rows="3">All duplicated incoming events return HTTP 200 with cached signature response payload.</textarea>
+</div>
+<!-- Reason for change -->
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface flex items-center justify-between" for="ac-2-reason">
+<span>Reason for change</span>
+<span class="font-code-sm text-code-sm text-error font-normal">required</span>
+</label>
+<input class="w-full min-h-[44px] px-space-md bg-surface text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:bg-surface-container-lowest transition-colors" id="ac-2-reason" placeholder="Explain why this AC was adjusted..." type="text" value="Signature payload caching deferred to secondary task PROJ-145"/>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="min-h-[44px] px-space-lg flex items-center justify-center rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+              Cancel
+            </button>
+<button class="min-h-[44px] px-space-xl flex items-center justify-center rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:opacity-90 transition-opacity" type="button">
+              Save AC
+            </button>
+</div>
+</div>
+<!-- AC-3 (Read-only) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-code-lg text-code-lg font-bold text-on-surface">AC-3</span>
+<span class="font-code-sm text-code-sm bg-surface-container text-on-surface-variant px-space-xs py-0.5 rounded truncate max-w-[130px]">
+                description#p4
+              </span>
+</div>
+<button aria-label="Edit AC-3" class="w-11 h-11 min-h-[44px] min-w-[44px] -mr-1 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Consumer acknowledgment offset committed only after DB transaction commits.
+          </p>
+<div class="flex items-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Covered</span>
+</div>
+</div>
+<!-- AC-4 (Read-only) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-code-lg text-code-lg font-bold text-on-surface">AC-4</span>
+<span class="font-code-sm text-code-sm bg-surface-container text-on-surface-variant px-space-xs py-0.5 rounded truncate max-w-[150px]">
+                attachment flow.png
+              </span>
+</div>
+<button aria-label="Edit AC-4" class="w-11 h-11 min-h-[44px] min-w-[44px] -mr-1 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Fallback memory cache engaged for Redis failover scenario during deployment window.
+          </p>
+<div class="flex items-center gap-1.5 pt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Added by you</span>
+</div>
+</div>
+</div>
+<!-- Add AC Button -->
+<div class="pt-space-xs">
+<button class="w-full min-h-[48px] py-space-sm px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-primary font-label-md text-label-md flex items-center justify-center gap-space-xs transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Add Acceptance Criterion</span>
+</button>
+<p class="font-label-sm text-label-sm text-outline text-center mt-1.5">
+          This will: add an AC marked 'added by you' — a reason is required
+        </p>
+</div>
+</div>
+<!-- 3. Open Questions Card -->
+<div class="bg-secondary-fixed/30 rounded-xl p-space-md space-y-space-md shadow-xs">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">help</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Open questions (2)</h2>
+</div>
+<span class="font-code-sm text-code-sm bg-secondary-container/20 text-on-secondary-fixed font-semibold px-space-xs py-0.5 rounded">
+          Needs resolution
+        </span>
+</div>
+<!-- Question 1 -->
+<div class="space-y-space-xs">
+<p class="font-body-md text-body-md font-semibold text-on-surface">
+          1. What is the maximum backoff interval before dead-letter queue publication?
+        </p>
+<div class="bg-surface-container-lowest/90 rounded-lg p-space-sm font-code-sm text-code-sm text-on-surface-variant space-y-1">
+<div class="flex items-center gap-1 text-secondary font-semibold">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span>Draft comment (not sent)</span>
+</div>
+<p class="leading-relaxed">Proposing default 300s max backoff with jitter. Awaiting @billing-team sign-off.</p>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="space-y-space-xs">
+<p class="font-body-md text-body-md font-semibold text-on-surface">
+          2. Should non-200 Stripe webhook responses trigger synthetic alert metrics?
+        </p>
+<div class="bg-surface-container-lowest/90 rounded-lg p-space-sm font-code-sm text-code-sm text-on-surface-variant space-y-1">
+<div class="flex items-center gap-1 text-secondary font-semibold">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span>Draft comment (not sent)</span>
+</div>
+<p class="leading-relaxed">Will emit datadog counter <code class="bg-surface-container px-1 rounded text-on-surface">stripe.webhook.fallback_error</code> tagged by event type.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Sticky Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface px-margin py-space-sm pb-safe shadow-[0_-2px_12px_rgba(0,0,0,0.06)]">
+<div class="flex items-center gap-space-sm">
+<button class="min-h-[44px] flex-1 font-label-md text-label-md text-on-surface bg-surface-container hover:bg-surface-container-high active:bg-surface-container-highest rounded-xl flex items-center justify-center transition-colors" type="button">
+        Save draft
+      </button>
+<button class="min-h-[44px] flex-1 font-label-md text-label-md text-on-primary bg-secondary-container hover:opacity-90 active:opacity-100 rounded-xl shadow-sm flex items-center justify-center gap-1.5 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Confirm requirements</span>
+</button>
+</div>
+<p class="font-code-sm text-code-sm text-outline text-center mt-1.5 leading-tight">
+      This will: run the drift check against the original ticket, then propose solutions
+    </p>
+</div>
+</div></main></body></html>

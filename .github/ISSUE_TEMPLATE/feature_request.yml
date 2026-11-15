@@ -1,0 +1,26 @@
+name: Feature request
+description: Suggest something Slack Off should do.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Two rules shape every feature: **every outward write (push, pull request, JIRA status or comment, trace export) is confirmed by the developer, every time**, and **every decision is reachable on a 390px phone**. Say how your idea keeps both. Placeholder names only (`PROJ-1`, `example-org`).
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to do, and what gets in the way today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+      description: How it would work, including on the phone and where you would confirm anything it sends.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered

@@ -1,0 +1,5 @@
+Edit the "Tickets" screen only, keep everything else as is: (1) In the bulk action bar change the note to "This will: start the refine agent for 2 tickets (read-only on JIRA)" — refining never writes to JIRA. (2) Add two table columns after "Running agent": "Review AC first" (small toggle switch per row, on for PROJ-128) and "AC drift" (icon: red warning triangle on PROJ-119 with tooltip "1 AC missing vs original", green check on PROJ-114, dash elsewhere); narrow the Summary column so the table fits without horizontal cut-off. (3) Remove "auto-polling 60s"; fetching is manual — keep "last fetched 5m ago". (4) Change the port label next to the logo from ":7391" to ":4317".
+
+Follow-up 1: The table header row and the first data row (PROJ-142) render as empty blank bars — restore them with all column headers; show the port label ":4317" next to the logo. Change nothing else.
+
+Follow-up 2: The tickets table appears twice — delete the lower copy and restore the "Live Agent Stream" terminal panel. Keep everything else unchanged.

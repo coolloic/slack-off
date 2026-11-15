@@ -1,0 +1,28 @@
+{
+  "issues": [
+    {
+      "id": "10000",
+      "key": "PROJ-1",
+      "fields": {
+        "summary": "First ticket",
+        "status": {
+          "name": "Ready for Dev"
+        },
+        "updated": "2026-11-08T09:00:00.000+0000"
+      }
+    },
+    {
+      "id": "10001",
+      "key": "PROJ-2",
+      "fields": {
+        "summary": "Second ticket",
+        "status": {
+          "name": "In Progress"
+        },
+        "updated": "2026-11-07T09:00:00.000+0000"
+      }
+    }
+  ],
+  "nextPageToken": "page-2-token",
+  "isLast": false
+}

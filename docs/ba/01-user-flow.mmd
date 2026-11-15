@@ -1,0 +1,31 @@
+flowchart TD
+  J0[("JIRA · Ready for Dev")]:::ext
+  P0["平台 · 按 JQL 拉票<br/>分配给我 + Ready for Dev"]:::plat
+  D0(["开发者 · 勾选要处理的票"]):::dev
+  A1["需求整理 agent<br/>需求 + AC + 疑问点 + 评论草稿"]:::agent
+  D1{"拍板点 0（默认跳过）<br/>开发者审阅 / 编辑需求与 AC"}:::dev
+  A2["方案 agent<br/>1..N 方案 + 优缺点"]:::agent
+  D2{"拍板点 1<br/>开发者选方案 + 备注"}:::dev
+  A3["设计 agent ⇄ 挑刺 agent<br/>质量清单逐项覆盖 · ≤3 轮"]:::agent
+  P3["平台 · 建 worktree + 分支"]:::plat
+  J1[("JIRA · In Progress<br/>（可选：开启状态同步且开发者确认）")]:::ext
+  A4["开发 agent<br/>代码 + 测试 + commit"]:::agent
+  D3{"拍板点 2<br/>开发者交给验收"}:::dev
+  P4["平台 · 导出无历史代码快照"]:::plat
+  A5["验收 agent（只看需求和 AC）<br/>模拟最终用户 e2e + 截图"]:::agent
+  D4{"拍板点 3<br/>开发者确认验收报告<br/>+ 确认框中的动作清单"}:::dev
+  P5["平台 · 交付：push + 每仓库一个 PR（互相引用）"]:::plat
+  J2[("JIRA · Ready for Human Review<br/>+ PR 链接评论<br/>（可选：开启状态同步时，交付中 PR 开好之后）")]:::ext
+
+  J0 --> P0 --> D0 --> A1 --> D1 --> A2 --> D2 --> A3
+  A3 -- "分歧超过 3 轮 → 开发者裁决" --> D2
+  A3 -- "定稿" --> P3
+  P3 --> J1
+  P3 --> A4 --> D3 --> P4 --> A5
+  A5 -- "失败 · 自动修复 ≤ review.maxAttempts 次（默认 3）" --> A4
+  A5 -- "通过" --> D4 --> P5 --> J2
+
+  classDef dev fill:#ffe8cc,stroke:#e8590c
+  classDef plat fill:#e7f5ff,stroke:#1971c2
+  classDef agent fill:#ebfbee,stroke:#2f9e44
+  classDef ext fill:#f3f0ff,stroke:#6741d9

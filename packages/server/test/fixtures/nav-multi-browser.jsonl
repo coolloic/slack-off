@@ -1,0 +1,4 @@
+{"type":"assistant","message":{"content":[{"type":"tool_use","id":"t1","name":"mcp__claude-in-chrome__tabs_context_mcp","input":{"createIfEmpty":true}}]}}
+{"type":"user","message":{"content":[{"type":"tool_result","tool_use_id":"t1","is_error":true,"content":[{"type":"text","text":"Multiple Chrome browsers are connected to this account and none has been selected for this session. Call list_connected_browsers, then ask the user with AskUserQuestion which one to use."}]}]}}
+{"type":"assistant","message":{"content":[{"type":"text","text":"I cannot choose a browser without asking."}]}}
+{"type":"result","subtype":"success","is_error":false,"result":"I cannot choose a browser without asking.","permission_denials":[],"total_cost_usd":0.01,"usage":{"input_tokens":1,"output_tokens":1}}

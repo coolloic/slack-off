@@ -1,0 +1,721 @@
+{
+  "id": "10000",
+  "key": "PROJ-1",
+  "self": "https://elsewhere.example.net/rest/api/3/issue/10000",
+  "fields": {
+    "summary": "Checkout shows the wrong total",
+    "status": {
+      "name": "Ready for Dev"
+    },
+    "updated": "2026-11-08T09:00:00.000+0000",
+    "description": {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "heading",
+          "attrs": {
+            "level": 2
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Problem"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The total "
+            },
+            {
+              "type": "text",
+              "text": "ignores",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": " the discount."
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "Seen by "
+            },
+            {
+              "type": "mention",
+              "attrs": {
+                "id": "acc-1",
+                "text": "@Test User 1"
+              }
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "type": "bulletList",
+          "content": [
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Add an item"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Apply code SAVE10"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "orderedList",
+          "content": [
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Open the cart"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Check the total"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "codeBlock",
+          "attrs": {
+            "language": "js"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "total = sum - discount;"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spec: "
+            },
+            {
+              "type": "inlineCard",
+              "attrs": {
+                "url": "https://docs.example.com/spec"
+              }
+            }
+          ]
+        },
+        {
+          "type": "mediaSingle",
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "id": "5d1c-media-uuid",
+                "type": "file",
+                "collection": "",
+                "alt": "screenshot.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "attachment": [
+      {
+        "id": "30001",
+        "filename": "screenshot.png",
+        "mimeType": "image/png",
+        "size": 68,
+        "content": "https://your-company.atlassian.net/rest/api/3/attachment/content/30001"
+      },
+      {
+        "id": "30002",
+        "filename": "huge.png",
+        "mimeType": "image/png",
+        "size": 6291456,
+        "content": "https://your-company.atlassian.net/rest/api/3/attachment/content/30002"
+      },
+      {
+        "id": "30003",
+        "filename": "notes.pdf",
+        "mimeType": "application/pdf",
+        "size": 1200,
+        "content": "https://your-company.atlassian.net/rest/api/3/attachment/content/30003"
+      },
+      {
+        "id": "30004",
+        "filename": "plain-http.png",
+        "mimeType": "image/png",
+        "size": 68,
+        "content": "https://your-company.atlassian.net/rest/api/3/attachment/content/30004"
+      },
+      {
+        "id": "30005",
+        "filename": "elsewhere.png",
+        "mimeType": "image/png",
+        "size": 68,
+        "content": "https://elsewhere.example.net/attachment/30005"
+      }
+    ],
+    "comment": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 25,
+      "comments": [
+        {
+          "id": "20001",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20001",
+          "author": {
+            "accountId": "acc-1",
+            "displayName": "Test User 1",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-02T10:01:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 1"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20002",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20002",
+          "author": {
+            "accountId": "acc-2",
+            "displayName": "Test User 2",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-03T10:02:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 2"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20003",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20003",
+          "author": {
+            "accountId": "acc-0",
+            "displayName": "Test User 0",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-04T10:03:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 3"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20004",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20004",
+          "author": {
+            "accountId": "acc-1",
+            "displayName": "Test User 1",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-05T10:04:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 4"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20005",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20005",
+          "author": {
+            "accountId": "acc-2",
+            "displayName": "Test User 2",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-06T10:05:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 5"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20006",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20006",
+          "author": {
+            "accountId": "acc-0",
+            "displayName": "Test User 0",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-07T10:06:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 6"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20007",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20007",
+          "author": {
+            "accountId": "acc-1",
+            "displayName": "Test User 1",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-08T10:07:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 7"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20008",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20008",
+          "author": {
+            "accountId": "acc-2",
+            "displayName": "Test User 2",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-01T10:08:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 8"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20009",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20009",
+          "author": {
+            "accountId": "acc-0",
+            "displayName": "Test User 0",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-02T10:09:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 9"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20010",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20010",
+          "author": {
+            "accountId": "acc-1",
+            "displayName": "Test User 1",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-03T10:10:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 10"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20011",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20011",
+          "author": {
+            "accountId": "acc-2",
+            "displayName": "Test User 2",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-04T10:11:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 11"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20012",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20012",
+          "author": {
+            "accountId": "acc-0",
+            "displayName": "Test User 0",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-05T10:12:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 12"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20013",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20013",
+          "author": {
+            "accountId": "acc-1",
+            "displayName": "Test User 1",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-06T10:13:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 13"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20014",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20014",
+          "author": {
+            "accountId": "acc-2",
+            "displayName": "Test User 2",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-07T10:14:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 14"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20015",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20015",
+          "author": {
+            "accountId": "acc-0",
+            "displayName": "Test User 0",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-08T10:15:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 15"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20016",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20016",
+          "author": {
+            "accountId": "acc-1",
+            "displayName": "Test User 1",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-01T10:16:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 16"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20017",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20017",
+          "author": {
+            "accountId": "acc-2",
+            "displayName": "Test User 2",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-02T10:17:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 17"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20018",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20018",
+          "author": {
+            "accountId": "acc-0",
+            "displayName": "Test User 0",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-03T10:18:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 18"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20019",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20019",
+          "author": {
+            "accountId": "acc-1",
+            "displayName": "Test User 1",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-04T10:19:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 19"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "20020",
+          "self": "https://your-company.atlassian.net/rest/api/3/issue/10000/comment/20020",
+          "author": {
+            "accountId": "acc-2",
+            "displayName": "Test User 2",
+            "emailAddress": "you@example.com"
+          },
+          "created": "2026-11-05T10:20:00.000+0000",
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Comment number 20"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

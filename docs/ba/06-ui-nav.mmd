@@ -1,0 +1,25 @@
+flowchart LR
+  NAV(["侧边栏"]):::nav
+  T["01 Tickets<br/>discovered … pr_opened"]:::page
+  A["09 Audit log"]:::page
+  C["10 Cost & quota"]:::page
+  ST["11 Settings"]:::page
+  subgraph DETAIL["票详情（页签）"]
+    S4["04 Original snapshot<br/>只读 · 快照版本"]:::page
+    S3["03 Requirements & AC<br/>awaiting_ac_review · 拍板点 0"]:::decide
+    S2["02 AC coverage<br/>偏移检查 · 已知晓"]:::decide
+    S5["05 Solutions<br/>awaiting_choice · 拍板点 1"]:::decide
+    S6["06 Design & debate<br/>awaiting_debate_ruling · 拍板点 1.5"]:::decide
+    S7["07 Development<br/>dev_done · 拍板点 2"]:::decide
+    S8["08 Acceptance<br/>awaiting_confirmation · 拍板点 3"]:::decide
+  end
+  NAV --> T
+  NAV --> A
+  NAV --> C
+  NAV --> ST
+  T -- "点击票 / Needs you" --> S3
+  S4 --> S3 --> S2 --> S5 --> S6 --> S7 --> S8
+  S8 -- "确认 → 开 PR" --> T
+  classDef page fill:#e7f5ff,stroke:#1971c2
+  classDef decide fill:#ffe8cc,stroke:#e8590c
+  classDef nav fill:#f1f3f5,stroke:#868e96

@@ -1,0 +1,214 @@
+{
+  "config": {
+    "rootDir": "/run/work/acceptance/specs",
+    "configFile": "/run/work/acceptance/playwright.config.mjs",
+    "projects": [
+      {
+        "id": "",
+        "name": "",
+        "testDir": "/run/work/acceptance/specs"
+      }
+    ]
+  },
+  "suites": [
+    {
+      "title": "ac-1.spec.mjs",
+      "file": "ac-1.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "adds an item to the cart",
+          "ok": true,
+          "tags": [],
+          "id": "ac1specmjsaddsanitem",
+          "file": "ac-1.spec.mjs",
+          "line": 3,
+          "column": 5,
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 812,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T10:00:00.000Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/run/work/acceptance/artifacts/ac-1-adds/test-finished-1.png"
+                    },
+                    {
+                      "name": "cart-after-add",
+                      "contentType": "image/png",
+                      "path": "/run/work/acceptance/artifacts/ac-1-adds/cart-after-add.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "rejects a negative quantity",
+          "ok": true,
+          "tags": [],
+          "id": "ac1specmjsrejectsane",
+          "file": "ac-1.spec.mjs",
+          "line": 3,
+          "column": 5,
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 812,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T10:00:00.000Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/run/work/acceptance/artifacts/ac-1-neg/test-finished-1.png"
+                    },
+                    {
+                      "name": "api",
+                      "contentType": "application/json",
+                      "body": "eyJyZXF1ZXN0IjoiR0VUIC9hcGkvY2FydCIsInJlc3BvbnNlIjp7Iml0ZW1zIjpbXX19"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ac-2.spec.mjs",
+      "file": "ac-2.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "checkout shows the total",
+          "ok": true,
+          "tags": [],
+          "id": "ac2specmjscheckoutsh",
+          "file": "ac-2.spec.mjs",
+          "line": 3,
+          "column": 5,
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 812,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T10:00:00.000Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/run/work/acceptance/artifacts/ac-2-total/test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "rejects empty cart",
+          "ok": false,
+          "tags": [],
+          "id": "ac2specmjsrejectsemp",
+          "file": "ac-2.spec.mjs",
+          "line": 3,
+          "column": 5,
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 812,
+                  "errors": [
+                    {
+                      "message": "Error: expect(locator).toBeVisible() failed"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T10:00:00.000Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/run/work/acceptance/artifacts/ac-2-empty/test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-08T10:00:00.000Z",
+    "duration": 4100,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

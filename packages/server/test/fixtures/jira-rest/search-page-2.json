@@ -1,0 +1,16 @@
+{
+  "issues": [
+    {
+      "id": "10002",
+      "key": "PROJ-3",
+      "fields": {
+        "summary": "Third ticket",
+        "status": {
+          "name": "Ready for Dev"
+        },
+        "updated": "2026-11-06T09:00:00.000+0000"
+      }
+    }
+  ],
+  "isLast": true
+}
