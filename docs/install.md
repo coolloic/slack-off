@@ -46,6 +46,8 @@ pnpm install
 
 `pnpm install` downloads the dependencies from the public npm registry. It does not change anything outside the clone except pnpm's own package store.
 
+Clone into an ordinary folder (for example under your home directory), not under `/tmp`, `/private/tmp` or `$TMPDIR`: the command sandbox lets sandboxed commands write the system temp folders, so a checkout there fails the sandbox self-check and repository commands do not run.
+
 **Check:** `pnpm typecheck` finishes without errors (it prints only the command it ran).
 
 ## 4. Build the web UI
